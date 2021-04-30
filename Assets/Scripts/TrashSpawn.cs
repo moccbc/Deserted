@@ -10,9 +10,10 @@ public class TrashSpawn : MonoBehaviour
     public float repeatTime = 5f;
     public const float COLUMNS = 23f; // 5 - 25
     public const float ROWS = 21.15f; // -23 - 23
+    public float trashCount = 0;
 
     private System.Random random = new System.Random();
-   
+
     void Start() {
         InvokeRepeating("Spawn", 2f, repeatTime);
     }
@@ -23,5 +24,7 @@ public class TrashSpawn : MonoBehaviour
         float RandomCol = (float)random.Next(5, (int)COLUMNS); // Generate a Random Z value
         GameObject newTrash = GameObject.Instantiate(Trash_Block);
         newTrash.transform.position = new Vector3(RandomRow, y, RandomCol);
+        trashCount += 1;   
     }
+
 }

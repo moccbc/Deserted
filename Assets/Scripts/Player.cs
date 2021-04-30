@@ -15,7 +15,7 @@ public class Player : MonoBehaviour{
     private float verticalInput;
   
     private int superJumpsRemaining = 0;
-    private float mvmtSpeed = 5f;
+    private float mvmtSpeed = 7f;
 
     private Rigidbody rigidbodyComponent; 
 

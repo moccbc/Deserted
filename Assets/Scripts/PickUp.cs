@@ -11,7 +11,7 @@ public class PickUp : MonoBehaviour
     GameObject trash;
     public static bool left;
     public static bool right;
-    private float radius = 1f;
+    private float radius = 12f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +30,10 @@ public class PickUp : MonoBehaviour
             if (Input.GetKeyDown("e"))
             {
                 trash.GetComponent<Rigidbody>().isKinematic = true;
-                trash.transform.position = gameObject.transform.position +  new Vector3(.7f,0,0);
+                trash.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
                 trash.transform.parent = gameObject.transform;
                 hasItem = true;
+
             }
         }
 
@@ -49,33 +50,37 @@ public class PickUp : MonoBehaviour
         // Shows the trash on the left side of the player when moving towards the left
         if (left && hasItem)
         {
-                trash.transform.position = gameObject.transform.position +  new Vector3(-0.7f,0,0);
+                trash.transform.position = gameObject.transform.position +  new Vector3(-2f,0,0);
         }
         // Shows the trash on the right side of the player when moving towards the right
         if (right && hasItem)
         {
-                trash.transform.position = gameObject.transform.position +  new Vector3(0.7f,0,0);
+                trash.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
         }
     }
 
-    private void trashWithinDistance()
+    //private void trashWithinDistance()
+    //{
+    //    LayerMask trash = LayerMask.GetMask("Trash");
+    //    Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, radius, trash);
+    //    if(hitColliders.Length > 0)
+    //        Debug.Log("Entered trash sphere");
+    //}
+
+    private void OnCollisionEnter(Collision other)
     {
-        Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, radius);
-        for (int i = 0; i < hitColliders.Length; i++)
-            Debug.Log("Entered trash sphere");
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        // If the obect being collided with is trash, then it can be picked up
+        // If the object being collided with is trash, then it can be picked up
         if (other.gameObject.layer == 8 && !hasItem)
         {
+            Debug.Log("Hit the trash");
             canPickUp = true;
             trash = other.gameObject;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
+        Debug.Log("");
         canPickUp = false;
     }
 

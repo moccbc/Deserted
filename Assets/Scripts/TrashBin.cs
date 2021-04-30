@@ -16,13 +16,15 @@ public class TrashBin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(hasItem)
+            Debug.Log("Player is holding trash");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Trash"))
         {
+            Debug.Log("Collision with trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             PickUp.hasItem = false;

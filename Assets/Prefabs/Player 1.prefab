@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7009867240103004180}
   - component: {fileID: 7009867240103004171}
   m_Layer: 6
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7009867240103004178}
-  m_Material: {fileID: 13400000, guid: a18373748290b4a5daf4c45d7bc09182, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -155,13 +155,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7009867240103004178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea2da3b8848646a18897fff13c3e843, type: 3}
+  m_Script: {fileID: 11500000, guid: 45205e0ff9ccb4d838b922387d9c179b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheckTransform: {fileID: 7009867238830139605}
   playerMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 54
   movingLeft: 0
   movingRight: 0
 --- !u!114 &7009867240103004171
@@ -173,6 +173,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7009867240103004178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c87b3438659488e91fde49c7c8d610, type: 3}
+  m_Script: {fileID: 11500000, guid: 044bcc217222c40bdb2341063699925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

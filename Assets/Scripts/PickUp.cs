@@ -40,7 +40,7 @@ public class PickUp : MonoBehaviour
         // Drop trash if holding trash
         if (Input.GetKeyDown("q") && hasItem == true) // if you have an item and get the key to remove the object, again can be any key
         {
-            trash.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
+            //trash.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
             trash.transform.parent = null; // make the object no be a child of the hands
             hasItem = false;
         }
@@ -59,15 +59,15 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    //private void trashWithinDistance()
-    //{
-    //    LayerMask trash = LayerMask.GetMask("Trash");
-    //    Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, radius, trash);
-    //    if(hitColliders.Length > 0)
-    //        Debug.Log("Entered trash sphere");
-    //}
+    private void trashWithinDistance()
+    {
+        LayerMask trash = LayerMask.GetMask("Trash");
+        Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, radius, trash);
+        if (hitColliders.Length > 0)
+            Debug.Log("Entered trash sphere");
+    }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         // If the object being collided with is trash, then it can be picked up
         if (other.gameObject.layer == 8 && !hasItem)
@@ -78,7 +78,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         Debug.Log("");
         canPickUp = false;

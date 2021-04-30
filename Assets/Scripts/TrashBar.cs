@@ -24,10 +24,10 @@ public class TrashBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        numTrashPickedUp = 1.0f;
+        numTrashPickedUp = TrashBin.trashPutAway;
         if (spawnedTrash.trashCount > 0)
         {
-            trashBarValue = numTrashPickedUp / spawnedTrash.trashCount;
+            trashBarValue = TrashBin.trashPutAway / spawnedTrash.trashCount;
         }
         slider.value = trashBarValue;
     }

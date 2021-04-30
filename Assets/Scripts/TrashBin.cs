@@ -6,7 +6,9 @@ using UnityEngine;
 public class TrashBin : MonoBehaviour
 {
     private static bool hasItem;
+    public TrashBar trashBar;
 
+    public static int trashPutAway = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class TrashBin : MonoBehaviour
             Debug.Log("Collision with trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
+            trashPutAway += 1;
             PickUp.hasItem = false;
         }
     }

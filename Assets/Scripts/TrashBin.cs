@@ -24,9 +24,17 @@ public class TrashBin : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Trash"))
+        if(other.gameObject.CompareTag("Plastic") && this.gameObject.tag == "PlasticBin")
         {
-            Debug.Log("Collision with trash bin");
+            Debug.Log("Collision with plastic trash bin");
+            Destroy(other.gameObject);
+            ScoreScript.scoreValue += 10;
+            trashPutAway += 1;
+            PickUp.hasItem = false;
+        }
+        else if(other.gameObject.CompareTag("GlassTrash") && this.gameObject.tag == "GlassBin")
+        {
+            Debug.Log("Collision with glass trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;

@@ -67,7 +67,7 @@ public class PickUp : MonoBehaviour
     //        Debug.Log("Entered trash sphere");
     //}
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         // If the object being collided with is trash, then it can be picked up
         if (other.gameObject.layer == 8 && !hasItem)
@@ -78,7 +78,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         Debug.Log("");
         canPickUp = false;

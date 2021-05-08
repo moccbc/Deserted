@@ -30,6 +30,7 @@ public class PickUp : MonoBehaviour
             if (Input.GetKeyDown("e"))
             {
                 //trash.GetComponent<Rigidbody>().isKinematic = true;
+                trash.GetComponent<Rigidbody>().useGravity = false;
                 trash.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
                 trash.transform.parent = gameObject.transform;
                 hasItem = true;

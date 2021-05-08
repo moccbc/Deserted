@@ -40,5 +40,21 @@ public class TrashBin : MonoBehaviour
             trashPutAway += 1;
             PickUp.hasItem = false;
         }
+        else if(other.gameObject.CompareTag("MetalTrash") && this.gameObject.tag == "MetalBin")
+        {
+            Debug.Log("Collision with metal trash bin");
+            Destroy(other.gameObject);
+            ScoreScript.scoreValue += 10;
+            trashPutAway += 1;
+            PickUp.hasItem = false;
+        }
+        else if(other.gameObject.CompareTag("OrganicTrash") && this.gameObject.tag == "OrganicTrashBin")
+        {
+            Debug.Log("Collision with organic trash bin");
+            Destroy(other.gameObject);
+            ScoreScript.scoreValue += 10;
+            trashPutAway += 1;
+            PickUp.hasItem = false;
+        }
     }
 }

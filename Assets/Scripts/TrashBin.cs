@@ -16,17 +16,17 @@ public class TrashBin : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(hasItem)
-            Debug.Log("Player is holding trash");
-    }
+    //void Update()
+    //{
+    //    if(hasItem)
+    //        Debug.Log("Player is holding trash");
+    //}
 
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Plastic") && this.gameObject.tag == "PlasticBin")
         {
-            Debug.Log("Collision with plastic trash bin");
+            //Debug.Log("Collision with plastic trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
@@ -34,7 +34,7 @@ public class TrashBin : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("GlassTrash") && this.gameObject.tag == "GlassBin")
         {
-            Debug.Log("Collision with glass trash bin");
+            //Debug.Log("Collision with glass trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
@@ -42,7 +42,7 @@ public class TrashBin : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("MetalTrash") && this.gameObject.tag == "MetalBin")
         {
-            Debug.Log("Collision with metal trash bin");
+            //Debug.Log("Collision with metal trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
@@ -50,7 +50,7 @@ public class TrashBin : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("OrganicTrash") && this.gameObject.tag == "OrganicTrashBin")
         {
-            Debug.Log("Collision with organic trash bin");
+            //Debug.Log("Collision with organic trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;

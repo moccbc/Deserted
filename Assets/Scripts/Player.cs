@@ -15,7 +15,7 @@ public class Player : MonoBehaviour{
     private float verticalInput;
   
     private int superJumpsRemaining = 0;
-    private float mvmtSpeed = 7f;
+    public float mvmtSpeed = 7f;
 
     private Rigidbody rigidbodyComponent; 
 
@@ -75,8 +75,6 @@ public class Player : MonoBehaviour{
             rigidbodyComponent.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
             jumpKeyPressed = false;
         }
-
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,15 +83,17 @@ public class Player : MonoBehaviour{
         if(other.gameObject.layer == 7)
         {
             Destroy(other.gameObject);
-            superJumpsRemaining++;
+            StartCoroutine(SprintPowerUp());
         }
-
-        //if (other.gameObject.layer == 8)
-        //{
-        //    Destroy(other.gameObject);
-        //}
 
     }
 
-
+    IEnumerator SprintPowerUp()
+    {
+        mvmtSpeed = 12f;
+        Debug.Log("Picked up power up at " + Time.time);
+        yield return new WaitForSeconds(10);
+        Debug.Log("Powerup ran out at " + Time.time);
+        mvmtSpeed = 7f;
+    }
 }

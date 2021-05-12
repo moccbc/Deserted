@@ -60,20 +60,12 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    //private void trashWithinDistance()
-    //{
-    //    LayerMask trash = LayerMask.GetMask("Trash");
-    //    Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, radius, trash);
-    //    if(hitColliders.Length > 0)
-    //        Debug.Log("Entered trash sphere");
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
         // If the object being collided with is trash, then it can be picked up
         if (other.gameObject.layer == 8 && !hasItem)
         {
-            Debug.Log("Hit the trash");
+            //Debug.Log("Hit the trash");
             canPickUp = true;
             trash = other.gameObject;
         }

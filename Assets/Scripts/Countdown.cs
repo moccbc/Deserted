@@ -28,7 +28,7 @@ public class Countdown : MonoBehaviour
             Timer();
         }
         else
-        {
+        { 
             textBox.text = "Finish";
         }
     }
@@ -37,8 +37,10 @@ public class Countdown : MonoBehaviour
     {
         float minutes = Mathf.Floor(timeStart / 60);
         float seconds = timeStart % 60;
+
         timeStart -= Time.deltaTime;
         timerSlider.value = timeStart;
+
         if (minutes > 9)
         {
             if (Mathf.Floor(seconds) > 9)
@@ -61,6 +63,5 @@ public class Countdown : MonoBehaviour
                 textBox.text = "0" + minutes + ":0" + seconds;
             }
         }
-
     }
 }

@@ -12,6 +12,8 @@ TagManager:
   - MetalBin
   - OrganicTrash
   - OrganicTrashBin
+  - SprintPowerUp
+  - DestroyTrashPowerUp
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - Coin
+  - PowerUp
   - Trash
   - TrashBin
   - 

@@ -45,13 +45,21 @@ public class Player : MonoBehaviour{
             PickUp.left = false;
         }
 
+        // Mechanics to pick up power ups
         if(canPickUp && PowerUp != null && Input.GetKeyDown("e"))
         {
             switch(PowerUp.tag)
             {
+                // The sprint power up was picked up
                 case "SprintPowerUp":
-                    StartCoroutine(SprintPowerUp());
-                    Destroy(PowerUp);
+                    StartCoroutine(SprintPowerUp());    // Call coroutine to execute the power up for 15 seconds
+                    Destroy(PowerUp);                   // Destroy the power up as soon as it's picked up
+                    break;
+
+                // The Destroy Trash power up was picked up
+                case "DestroyTrashPowerUp":
+                    StartCoroutine(DestroyTrashPowerUp());
+                    Destroy(PowerUp); 
                     break;
             }
         }
@@ -59,6 +67,22 @@ public class Player : MonoBehaviour{
         // Control the horizontal movement of the player
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+    }
+
+    // Coroutine to execute the sprint power up
+    IEnumerator SprintPowerUp()
+    {
+        mvmtSpeed = 12f;                            // Increase the movement speed from 7 to 12
+        yield return new WaitForSeconds(10);        // Wait for 10 seconds
+        mvmtSpeed = 7f;                             // Return movement speed back to normal once 10 seconds have elapsed
+    }
+
+    // Coroutine to execute the destroy trash power up. 
+    IEnumerator DestroyTrashPowerUp()
+    {
+        PickUp.hasDestroyTrashPowerUp = true;       // Set the bool to true in PickUp script so that trash can be destroyed
+        yield return new WaitForSeconds(15);        // Wait for 15 seconds
+        PickUp.hasDestroyTrashPowerUp = false;      // Reset the bool to false to end the power up
     }
 
     // FixedUpdate is called once every physics update (100 ps)
@@ -91,18 +115,10 @@ public class Player : MonoBehaviour{
         // If the other collision game obect layer is 7, then it is a power up and it can be picked up
         if (other.gameObject.layer == 7)
         {
+            Debug.Log("Collided with power up");
             canPickUp = true;
             PowerUp = other.gameObject;
         }
 
-    }
-
-    IEnumerator SprintPowerUp()
-    {
-        mvmtSpeed = 12f;
-        Debug.Log("Picked up power up at " + Time.time);
-        yield return new WaitForSeconds(10);
-        Debug.Log("Powerup ran out at " + Time.time);
-        mvmtSpeed = 7f;
     }
 }

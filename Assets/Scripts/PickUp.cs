@@ -7,10 +7,12 @@ public class PickUp : MonoBehaviour
 {
     public static bool canPickUp;
     public static bool hasItem;
-    public static int powerUp;  // An int to represent the power up that has been picked up
     GameObject objToPickUp;
+    public GameObject trashSpawn;
+    private TrashSpawn spawner;
     public static bool left;
     public static bool right;
+    public static bool hasDestroyTrashPowerUp;
     private float radius = 12f;
 
     // Start is called before the first frame update
@@ -29,14 +31,21 @@ public class PickUp : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
-                // If the obect to be picked up is trash, then pick it up
-                if (objToPickUp != null && objToPickUp.layer == 8)
+                // If the object to be picked up is trash, and the destroy trash power up is not activated, then pick it up
+                if (objToPickUp != null && objToPickUp.layer == 8 && !hasDestroyTrashPowerUp)
                 {
                     //trash.GetComponent<Rigidbody>().isKinematic = true;
                     objToPickUp.GetComponent<Rigidbody>().useGravity = false;
                     objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 0, 0);
                     objToPickUp.transform.parent = gameObject.transform;
                     hasItem = true;
+                }
+                // The object to be picked up is trash and the player has the destroy trash power up
+                else if(objToPickUp != null && objToPickUp.layer == 8 && hasDestroyTrashPowerUp)
+                {
+                    Destroy(objToPickUp);
+                    spawner = trashSpawn.GetComponent<TrashSpawn>();
+                    spawner.trashCount--;
                 }
 
             }

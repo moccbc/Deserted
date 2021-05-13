@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    
-    private bool canPickUp;
+    public static bool canPickUp;
     public static bool hasItem;
-    GameObject trash;
+    public static int powerUp;  // An int to represent the power up that has been picked up
+    GameObject objToPickUp;
     public static bool left;
     public static bool right;
     private float radius = 12f;
@@ -29,11 +29,15 @@ public class PickUp : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
-                //trash.GetComponent<Rigidbody>().isKinematic = true;
-                trash.GetComponent<Rigidbody>().useGravity = false;
-                trash.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
-                trash.transform.parent = gameObject.transform;
-                hasItem = true;
+                // If the obect to be picked up is trash, then pick it up
+                if (objToPickUp != null && objToPickUp.layer == 8)
+                {
+                    //trash.GetComponent<Rigidbody>().isKinematic = true;
+                    objToPickUp.GetComponent<Rigidbody>().useGravity = false;
+                    objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 0, 0);
+                    objToPickUp.transform.parent = gameObject.transform;
+                    hasItem = true;
+                }
 
             }
         }
@@ -41,39 +45,40 @@ public class PickUp : MonoBehaviour
         // Drop trash if holding trash
         if (Input.GetKeyDown("q") && hasItem == true) // if you have an item and get the key to remove the object, again can be any key
         {
-            trash.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
-            trash.transform.parent = null; // make the object no be a child of the hands
+            objToPickUp.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
+            objToPickUp.transform.parent = null; // make the object no be a child of the hands
             hasItem = false;
         }
     }
+
     private void FixedUpdate()
     {
         // Shows the trash on the left side of the player when moving towards the left
         if (left && hasItem)
         {
-                trash.transform.position = gameObject.transform.position +  new Vector3(-2f,0,0);
+                objToPickUp.transform.position = gameObject.transform.position +  new Vector3(-2f,0,0);
         }
         // Shows the trash on the right side of the player when moving towards the right
         if (right && hasItem)
         {
-                trash.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
+                objToPickUp.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // If the object being collided with is trash, then it can be picked up
+        // If the object being collided with is trash or a power up, then it can be picked up
         if (other.gameObject.layer == 8 && !hasItem)
         {
             //Debug.Log("Hit the trash");
             canPickUp = true;
-            trash = other.gameObject;
+            objToPickUp = other.gameObject;
         }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        Debug.Log("");
+        //Debug.Log("");
         canPickUp = false;
     }
 

@@ -15,13 +15,6 @@ public class TrashBin : MonoBehaviour
         hasItem = PickUp.hasItem;
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if(hasItem)
-    //        Debug.Log("Player is holding trash");
-    //}
-
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Plastic") && this.gameObject.tag == "PlasticBin")

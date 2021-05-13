@@ -22,7 +22,7 @@ public class TrashSpawn : MonoBehaviour
 
     void Start() {
         InvokeRepeating("Spawn", 2f, repeatTime);
-        InvokeRepeating("SpawnPowerUp", 15f, powerUpSpawnInterval);
+        InvokeRepeating("SpawnPowerUp", 5f, powerUpSpawnInterval);
     }
 
     public void SpawnPowerUp()

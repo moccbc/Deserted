@@ -2029,6 +2029,10 @@ PrefabInstance:
       propertyPath: player3Spawn.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6209122734813720067, guid: cc8347a67da531242bcf1c6556022fb6, type: 3}
+      propertyPath: player4Spawn.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc8347a67da531242bcf1c6556022fb6, type: 3}
 --- !u!1001 &407351216
@@ -4640,7 +4644,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23704
+  m_Name: pb_Mesh19508
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18351,7 +18355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Trash_Block: {fileID: 4641469119110554088, guid: e74a28d46648c7242bfe0ef2a67d0d75, type: 3}
-  repeatTime: 5
+  repeatTime: 1
   trashCount: 0
 --- !u!4 &1745015893
 Transform:

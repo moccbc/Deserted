@@ -12,25 +12,25 @@ public class TrashBin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hasItem = PickUp.hasItem;
+        //hasItem = PlayerController.hasItem;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(hasItem)
+        if(PlayerController.hasItem)
             Debug.Log("Player is holding trash");
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision item)
     {
-        if(other.gameObject.CompareTag("Trash"))
+        if(item.gameObject.CompareTag("Trash"))
         {
             Debug.Log("Collision with trash bin");
-            Destroy(other.gameObject);
+            Destroy(item.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            PickUp.hasItem = false;
+            PlayerController.hasItem = false;
         }
     }
 }

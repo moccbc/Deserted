@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7521965973116148915}
   - component: {fileID: 7521965973116148925}
   - component: {fileID: 7521965973116148926}
-  - component: {fileID: 7521965973116148913}
+  - component: {fileID: 3909082311087653652}
   - component: {fileID: 7521965973116148924}
   m_Layer: 0
   m_Name: Player
@@ -93,6 +93,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3fbf0fd7-7afa-4ea5-8803-12489c119d3e
     m_ActionName: Player/Jump[/Keyboard/space,/Keyboard/numpad0]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3909082311087653652}
+        m_TargetAssemblyTypeName: Pickup, Assembly-CSharp
+        m_MethodName: OnPickup
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 72efcc1c-9ac0-49c0-a103-2e3cd9d60ac7
+    m_ActionName: Player/Pickup[/Keyboard/q,/Keyboard/r,/Keyboard/u,/Keyboard/rightShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3909082311087653652}
+        m_TargetAssemblyTypeName: Pickup, Assembly-CSharp
+        m_MethodName: OnDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2fc5b320-15e0-4bc1-bb38-368f9118b084
+    m_ActionName: Player/Drop[/Keyboard/e,/Keyboard/y,/Keyboard/o,/Keyboard/numpad1]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Player1
   m_DefaultActionMap: Player
@@ -113,19 +145,18 @@ MonoBehaviour:
   playerSpeed: 5
   jumpHeight: 2
   gravityValue: -9.81
---- !u!135 &7521965973116148913
-SphereCollider:
+--- !u!114 &3909082311087653652
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7521965973116148912}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.87724185
-  m_Center: {x: -0.02409625, y: 0.4469533, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044bcc217222c40bdb2341063699925f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &7521965973116148924
 CharacterController:
   m_ObjectHideFlags: 0
@@ -138,7 +169,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08

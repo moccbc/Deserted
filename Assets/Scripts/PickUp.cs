@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    
     private bool canPickUp;
     public static bool hasItem;
     GameObject trash;

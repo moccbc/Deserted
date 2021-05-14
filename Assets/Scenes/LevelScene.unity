@@ -2089,6 +2089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d497abc57a475459ac64bcb92cdc00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeStart: 180
   textBox: {fileID: 561429165}
   timerSlider: {fileID: 470268660}
 --- !u!114 &470268660 stripped
@@ -18423,6 +18424,7 @@ MonoBehaviour:
   MetalTrash: {fileID: 6435113103728635647, guid: a5d61dfaab9ab4d8c87c3355617ff8b4, type: 3}
   OrganicTrash: {fileID: 8257190571064741912, guid: baeb62c20a47b485a8e635b335f65b9b, type: 3}
   SprintPowerUp: {fileID: 9213009113078714989, guid: d711af2e6c990470aac137c29a23070b, type: 3}
+  DestroyTrashPowerUp: {fileID: 3397704121877660217, guid: 35fb4ae500d374d3ab27c72331f2aa8b, type: 3}
   repeatTime: 5
   powerUpSpawnInterval: 15
   trashCount: 0
@@ -20869,6 +20871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044bcc217222c40bdb2341063699925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trashSpawn: {fileID: 1745015891}
 --- !u!54 &1898738546
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20920,6 +20923,8 @@ MonoBehaviour:
     m_Bits: 0
   movingLeft: 0
   movingRight: 0
+  canPickUp: 0
+  mvmtSpeed: 7
 --- !u!4 &1904585640 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 416684, guid: 86be09d8335b8fe4793de59175aeb6a0, type: 3}

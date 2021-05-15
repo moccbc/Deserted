@@ -34,7 +34,7 @@ public class PickUp : MonoBehaviour
                 // If the object to be picked up is trash, and the destroy trash power up is not activated, then pick it up
                 if (objToPickUp != null && objToPickUp.layer == 8 && !hasDestroyTrashPowerUp)
                 {
-                    //trash.GetComponent<Rigidbody>().isKinematic = true;
+                    objToPickUp.GetComponent<Rigidbody>().isKinematic = true;
                     objToPickUp.GetComponent<Rigidbody>().useGravity = false;
                     objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 0, 0);
                     objToPickUp.transform.parent = gameObject.transform;
@@ -52,7 +52,7 @@ public class PickUp : MonoBehaviour
         }
 
         // Drop trash if holding trash
-        if (Input.GetKeyDown("q") && hasItem == true) // if you have an item and get the key to remove the object, again can be any key
+        if (PlayerController.dropped && hasItem == true) // Holding an item and the drop key is pressed
         {
             objToPickUp.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
             objToPickUp.transform.parent = null; // make the object no be a child of the hands
@@ -79,7 +79,7 @@ public class PickUp : MonoBehaviour
         // If the object being collided with is trash or a power up, then it can be picked up
         if (other.gameObject.layer == 8 && !hasItem)
         {
-            //Debug.Log("Hit the trash");
+            Debug.Log("Trash trigger enter");
             canPickUp = true;
             objToPickUp = other.gameObject;
         }
@@ -87,7 +87,7 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        //Debug.Log("");
+        Debug.Log("Trash trigger exit");
         canPickUp = false;
     }
 

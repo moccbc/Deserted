@@ -127,34 +127,34 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
-        // Picking up an item
-        if (pickedup && !hasItem && nearItem) {
-            Debug.Log("Picking up!");
-            item.transform.position = gameObject.transform.position
-                                    + new Vector3(2f, 0, 0);
-            item.transform.parent = gameObject.transform;
-            hasItem = true;
-        }
+        //    // Picking up an item
+        //    if (pickedup && !hasItem && nearItem) {
+        //        Debug.Log("Picking up!");
+        //        item.transform.position = gameObject.transform.position
+        //                                + new Vector3(2f, 0, 0);
+        //        item.transform.parent = gameObject.transform;
+        //        hasItem = true;
+        //    }
 
-        // Dropping an item
-        if (dropped && hasItem) {
-            // make the rigidbody work again
-            item.GetComponent<Rigidbody>().isKinematic = false; 
-            // make the object no be a child of the hands
-            item.transform.parent = null; 
-            item = null;
-            hasItem = false;
-        }
+        //    // Dropping an item
+        //    if (dropped && hasItem) {
+        //        // make the rigidbody work again
+        //        item.GetComponent<Rigidbody>().isKinematic = false; 
+        //        // make the object no be a child of the hands
+        //        item.transform.parent = null; 
+        //        item = null;
+        //        hasItem = false;
+        //    }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-    }
-    
-    private void OnControllerColliderHit(ControllerColliderHit hit) {
-        if (hit.gameObject.layer == 8 && !hasItem) {                
-            Debug.Log("Hit a pickuppable!");
-            nearItem = true;
-            item = hit.gameObject;
-        }
+        //}
+
+        //private void OnControllerColliderHit(ControllerColliderHit hit) {
+        //    if (hit.gameObject.layer == 8 && !hasItem) {                
+        //        Debug.Log("Hit a pickuppable!");
+        //        nearItem = true;
+        //        item = hit.gameObject;
+        //    }
     }
 }

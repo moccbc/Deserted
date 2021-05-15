@@ -20,7 +20,7 @@ public class TrashBin : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (gameManager.gameOver == false) {
+        //if (gameManager.gameOver == false) {
             if(other.gameObject.CompareTag("Plastic") && this.gameObject.tag == "PlasticBin")
             {
                 //Debug.Log("Collision with plastic trash bin");
@@ -53,6 +53,6 @@ public class TrashBin : MonoBehaviour
                 trashPutAway += 1;
                 PickUp.hasItem = false;
             }
-        }
+        //}
     }
 }

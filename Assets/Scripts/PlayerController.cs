@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     // Variables for picking up mechanics
     GameObject item;
     public static bool hasItem;
-    private bool pickedup;
-    private bool dropped;
+    public static bool pickedup;
+    public static bool dropped;
     private bool nearItem;
 
     GameObject playerPrefab;

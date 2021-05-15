@@ -5,11 +5,7 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-<<<<<<< HEAD
-    private bool canPickUp;
-=======
     public static bool canPickUp;
->>>>>>> celvin/temp-power-up
     public static bool hasItem;
     GameObject objToPickUp;
     public GameObject trashSpawn;
@@ -33,7 +29,7 @@ public class PickUp : MonoBehaviour
         // Pick up trash if hands are empty
         if (canPickUp == true)
         {
-            if (Input.GetKeyDown("e"))
+            if (PlayerController.pickedup)
             {
                 // If the object to be picked up is trash, and the destroy trash power up is not activated, then pick it up
                 if (objToPickUp != null && objToPickUp.layer == 8 && !hasDestroyTrashPowerUp)

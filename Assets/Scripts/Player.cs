@@ -13,9 +13,10 @@ public class Player : MonoBehaviour{
     private bool jumpKeyPressed = false;
     private float horizontalInput;
     private float verticalInput;
-  
+    public bool canPickUp;
+    GameObject PowerUp;
     private int superJumpsRemaining = 0;
-    private float mvmtSpeed = 7f;
+    public float mvmtSpeed = 7f;
 
     private Rigidbody rigidbodyComponent; 
 
@@ -44,17 +45,49 @@ public class Player : MonoBehaviour{
             PickUp.left = false;
         }
 
+        // Mechanics to pick up power ups
+        if(canPickUp && PowerUp != null && Input.GetKeyDown("e"))
+        {
+            switch(PowerUp.tag)
+            {
+                // The sprint power up was picked up
+                case "SprintPowerUp":
+                    StartCoroutine(SprintPowerUp());    // Call coroutine to execute the power up for 15 seconds
+                    Destroy(PowerUp);                   // Destroy the power up as soon as it's picked up
+                    break;
+
+                // The Destroy Trash power up was picked up
+                case "DestroyTrashPowerUp":
+                    StartCoroutine(DestroyTrashPowerUp());
+                    Destroy(PowerUp); 
+                    break;
+            }
+        }
+
         // Control the horizontal movement of the player
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
     }
 
+    // Coroutine to execute the sprint power up
+    IEnumerator SprintPowerUp()
+    {
+        mvmtSpeed = 12f;                            // Increase the movement speed from 7 to 12
+        yield return new WaitForSeconds(10);        // Wait for 10 seconds
+        mvmtSpeed = 7f;                             // Return movement speed back to normal once 10 seconds have elapsed
+    }
+
+    // Coroutine to execute the destroy trash power up. 
+    IEnumerator DestroyTrashPowerUp()
+    {
+        PickUp.hasDestroyTrashPowerUp = true;       // Set the bool to true in PickUp script so that trash can be destroyed
+        yield return new WaitForSeconds(15);        // Wait for 15 seconds
+        PickUp.hasDestroyTrashPowerUp = false;      // Reset the bool to false to end the power up
+    }
+
     // FixedUpdate is called once every physics update (100 ps)
     private void FixedUpdate()
     {
-        // Check if player is colliding with another object to determine if it's grounded. Object is always colliding with itself, so there is 1 collision
-        // if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f).Length == 1)
-
         // Add the horizontal component to the x-axis
         rigidbodyComponent.velocity = new Vector3(horizontalInput * mvmtSpeed, rigidbodyComponent.velocity.y, verticalInput * mvmtSpeed);
 
@@ -75,25 +108,17 @@ public class Player : MonoBehaviour{
             rigidbodyComponent.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
             jumpKeyPressed = false;
         }
-
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // If the other collision game obect layer is 7, then it is a coin. Destroy that collision's game object
-        if(other.gameObject.layer == 7)
+        // If the other collision game obect layer is 7, then it is a power up and it can be picked up
+        if (other.gameObject.layer == 7)
         {
-            Destroy(other.gameObject);
-            superJumpsRemaining++;
+            Debug.Log("Collided with power up");
+            canPickUp = true;
+            PowerUp = other.gameObject;
         }
 
-        //if (other.gameObject.layer == 8)
-        //{
-        //    Destroy(other.gameObject);
-        //}
-
     }
-
-
 }

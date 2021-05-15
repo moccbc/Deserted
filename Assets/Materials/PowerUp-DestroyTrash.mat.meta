@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/Player1.prefab.meta
+guid: df2b93757322b46749cbf1b93c5e0b34
+PrefabImporter:
+  externalObjects: {}
+=======
+guid: 5fe59fb9fd7ac4513b334905052a20cc
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+>>>>>>> celvin/temp-power-up:Assets/Materials/PowerUp-DestroyTrash.mat.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

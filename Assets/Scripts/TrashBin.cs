@@ -7,6 +7,9 @@ public class TrashBin : MonoBehaviour
 {
     private static bool hasItem;
     public TrashBar trashBar;
+    //public ScoreScript scoreScript;
+    [SerializeField]
+    private GameManager gameManager;
 
     public static int trashPutAway = 0;
     // Start is called before the first frame update
@@ -24,7 +27,8 @@ public class TrashBin : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Trash"))
+        Debug.Log("trying" + gameManager.gameOver);
+        if (other.gameObject.CompareTag("Trash") && gameManager.gameOver == false)
         {
             Debug.Log("Collision with trash bin");
             Destroy(other.gameObject);

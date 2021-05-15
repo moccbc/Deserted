@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Countdown : MonoBehaviour
 {
-    public float timeStart = 180;
+    public float timeStart = 5;
     public Text textBox;
     public Slider timerSlider;
     
@@ -30,6 +30,8 @@ public class Countdown : MonoBehaviour
         else
         {
             textBox.text = "Finish";
+            FindObjectOfType<GameManager>().EndGame();
+            enabled = false;
         }
     }
 

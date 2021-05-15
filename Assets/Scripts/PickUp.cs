@@ -13,7 +13,6 @@ public class PickUp : MonoBehaviour
     public static bool left;
     public static bool right;
     public static bool hasDestroyTrashPowerUp;
-    private float radius = 12f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +46,16 @@ public class PickUp : MonoBehaviour
                     spawner = trashSpawn.GetComponent<TrashSpawn>();
                     spawner.trashCount--;
                 }
+                // The object to be picked up is a power up
+                else if(objToPickUp != null && objToPickUp.layer == 7)
+                {
+                    if(objToPickUp.CompareTag("SprintPowerUp"))
+                    {
+                        Debug.Log("Sprint Power Up Started");
+                        Destroy(objToPickUp);
+                        //StartCoroutine(SprintPowerUp());
+                    }
+                }
 
             }
         }
@@ -55,10 +64,19 @@ public class PickUp : MonoBehaviour
         if (PlayerController.dropped && hasItem == true) // Holding an item and the drop key is pressed
         {
             objToPickUp.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
+            objToPickUp.GetComponent<Rigidbody>().useGravity = true;
             objToPickUp.transform.parent = null; // make the object no be a child of the hands
             hasItem = false;
         }
     }
+
+    // Coroutine to execute the sprint power up
+    //IEnumerator SprintPowerUp()
+    //{
+    //    PlayerController.playerSpeed = 12f;         // Increase the movement speed from 7 to 12
+    //    yield return new WaitForSeconds(10);        // Wait for 10 seconds
+    //    PlayerController.playerSpeed = 7f;          // Return movement speed back to normal once 10 seconds have elapsed
+    //}
 
     private void FixedUpdate()
     {
@@ -76,13 +94,21 @@ public class PickUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // If the object being collided with is trash or a power up, then it can be picked up
+        // If the object being collided with is trash, then it can be picked up
         if (other.gameObject.layer == 8 && !hasItem)
         {
             Debug.Log("Trash trigger enter");
             canPickUp = true;
             objToPickUp = other.gameObject;
         }
+        // The object is a power up and the player is not holding anything, so pick it up
+        else if(other.gameObject.layer == 7 && !hasItem)
+        {
+            Debug.Log("Power up trigger entered");
+            canPickUp = true;
+            objToPickUp = other.gameObject;
+        }
+
     }
 
     private void OnTriggerExit(Collider collision)

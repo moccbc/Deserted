@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 7.0f;
     [SerializeField]
     private float jumpHeight = 1.0f;
     [SerializeField]
@@ -25,32 +25,32 @@ public class PlayerController : MonoBehaviour
     private bool jumped = false;
 
     // Variables for picking up mechanics
-    GameObject item;
-    public static bool hasItem;
+    //GameObject item;
+    //public static bool hasItem;
     public static bool pickedup;
     public static bool dropped;
-    private bool nearItem;
+    //private bool nearItem;
 
-    GameObject playerPrefab;
+    //GameObject playerPrefab;
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        hasItem = false;
+        //hasItem = false;
         pickedup = false;
         dropped = false;
-        nearItem = false;
-        item = null;
+        //nearItem = false;
+        //item = null;
     }
 
     public void OnMove(InputAction.CallbackContext context) {
         movementInput = context.ReadValue<Vector2>();
-        Debug.Log(movementInput);
+        //Debug.Log(movementInput);
     }
 
     public void OnJump(InputAction.CallbackContext context) {
-        Debug.Log("Jumping");
-        Debug.Log(groundedPlayer);
+        //Debug.Log("Jumping");
+        //Debug.Log(groundedPlayer);
         jumped = context.action.triggered;
     }
 
@@ -112,49 +112,14 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isFalling", true);
         }
 
-
-        // This will transform the object when it moves
-        // For example, rotation, flipping, etc.
-        // Disabled for now so that it doesn't rotate player
-        // if (move != Vector3.zero)
-        // {
-        //     gameObject.transform.forward = move;
-        // }
-
         // Changes the height position of the player..
         if(jumped && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
-        //    // Picking up an item
-        //    if (pickedup && !hasItem && nearItem) {
-        //        Debug.Log("Picking up!");
-        //        item.transform.position = gameObject.transform.position
-        //                                + new Vector3(2f, 0, 0);
-        //        item.transform.parent = gameObject.transform;
-        //        hasItem = true;
-        //    }
-
-        //    // Dropping an item
-        //    if (dropped && hasItem) {
-        //        // make the rigidbody work again
-        //        item.GetComponent<Rigidbody>().isKinematic = false; 
-        //        // make the object no be a child of the hands
-        //        item.transform.parent = null; 
-        //        item = null;
-        //        hasItem = false;
-        //    }
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        //}
 
-        //private void OnControllerColliderHit(ControllerColliderHit hit) {
-        //    if (hit.gameObject.layer == 8 && !hasItem) {                
-        //        Debug.Log("Hit a pickuppable!");
-        //        nearItem = true;
-        //        item = hit.gameObject;
-        //    }
     }
 }

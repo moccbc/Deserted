@@ -20,6 +20,7 @@ public class PickUp : MonoBehaviour
         //player =  GetComponent<Rigidbody>();
         canPickUp = false;
         hasItem = false;
+        hasDestroyTrashPowerUp = false;
     }
 
     // Update is called once per frame
@@ -53,7 +54,14 @@ public class PickUp : MonoBehaviour
                     {
                         Debug.Log("Sprint Power Up Started");
                         Destroy(objToPickUp);
-                        //StartCoroutine(SprintPowerUp());
+                        StartCoroutine(SprintPowerUp());
+                    }
+
+                    else if(objToPickUp.CompareTag("DestroyTrashPowerUp"))
+                    {
+                        Debug.Log("Destroy Trash Power Up started");
+                        Destroy(objToPickUp);
+                        StartCoroutine(DestroyTrashPowerUp());
                     }
                 }
 
@@ -71,12 +79,19 @@ public class PickUp : MonoBehaviour
     }
 
     // Coroutine to execute the sprint power up
-    //IEnumerator SprintPowerUp()
-    //{
-    //    PlayerController.playerSpeed = 12f;         // Increase the movement speed from 7 to 12
-    //    yield return new WaitForSeconds(10);        // Wait for 10 seconds
-    //    PlayerController.playerSpeed = 7f;          // Return movement speed back to normal once 10 seconds have elapsed
-    //}
+    IEnumerator SprintPowerUp()
+    {
+        PlayerController.playerSpeed = 12f;         // Increase the movement speed from 7 to 12
+        yield return new WaitForSeconds(10);        // Wait for 10 seconds
+        PlayerController.playerSpeed = 7f;          // Return movement speed back to normal once 10 seconds have elapsed
+    }
+
+    IEnumerator DestroyTrashPowerUp()
+    {
+        hasDestroyTrashPowerUp = true;
+        yield return new WaitForSeconds(15);
+        hasDestroyTrashPowerUp = false;
+    }
 
     private void FixedUpdate()
     {

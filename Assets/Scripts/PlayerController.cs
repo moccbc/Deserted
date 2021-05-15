@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float playerSpeed = 7.0f;
+    // [SerializeField]
+    public static float playerSpeed = 7.0f;
     [SerializeField]
     private float jumpHeight = 1.0f;
     [SerializeField]

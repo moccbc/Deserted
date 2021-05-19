@@ -9,7 +9,7 @@ public class TrashBin : MonoBehaviour
     public TrashBar trashBar;
     //public ScoreScript scoreScript;
     [SerializeField]
-    private GameManager gameManager;
+    //private GameManager gameManager;
 
     public static int trashPutAway = 0;
     // Start is called before the first frame update

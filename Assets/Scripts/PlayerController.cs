@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float playerSpeed = 2.0f;
+    // [SerializeField]
+    public static float playerSpeed = 7.0f;
     [SerializeField]
     private float jumpHeight = 1.0f;
     [SerializeField]
@@ -24,30 +24,52 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput = Vector2.zero; 
     private bool jumped = false;
 
-    GameObject playerPrefab;
+    // Variables for picking up mechanics
+    //GameObject item;
+    //public static bool hasItem;
+    public static bool pickedup;
+    public static bool dropped;
+    //private bool nearItem;
+
+    //GameObject playerPrefab;
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        // anim = gameObject.GetComponent<Animator>(); 
+        //hasItem = false;
+        pickedup = false;
+        dropped = false;
+        //nearItem = false;
+        //item = null;
     }
 
     public void OnMove(InputAction.CallbackContext context) {
         movementInput = context.ReadValue<Vector2>();
+        //Debug.Log(movementInput);
     }
 
     public void OnJump(InputAction.CallbackContext context) {
-        Debug.Log("Jumping");
-        Debug.Log(groundedPlayer);
+        //Debug.Log("Jumping");
+        //Debug.Log(groundedPlayer);
         jumped = context.action.triggered;
+    }
+
+    public void OnPickup(InputAction.CallbackContext context) {
+        pickedup = context.action.triggered;
+    }
+
+    public void OnDrop(InputAction.CallbackContext context) {
+        dropped = context.action.triggered;
     }
 
     void Update()
     {
         // anim.SetFloat("moveSpeed", playerVelocity.magnitude); // How fast is player moving?
+        // If the player is grounded and it is not jumping
         groundedPlayer = controller.isGrounded;
         if(groundedPlayer && playerVelocity.y < 0)
         {
+            // Keep the player grounded
             playerVelocity.y = 0f;
         }
 
@@ -90,15 +112,6 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isFalling", true);
         }
 
-
-        // This will transform the object when it moves
-        // For example, rotation, flipping, etc.
-        // Disabled for now so that it doesn't rotate player
-        // if (move != Vector3.zero)
-        // {
-        //     gameObject.transform.forward = move;
-        // }
-
         // Changes the height position of the player..
         if(jumped && groundedPlayer)
         {
@@ -107,5 +120,6 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
     }
 }

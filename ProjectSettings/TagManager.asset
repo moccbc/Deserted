@@ -4,7 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Trash
+  - Plastic
+  - PlasticBin
+  - GlassBin
+  - GlassTrash
+  - MetalTrash
+  - MetalBin
+  - OrganicTrash
+  - OrganicTrashBin
+  - SprintPowerUp
+  - DestroyTrashPowerUp
   layers:
   - Default
   - TransparentFX
@@ -13,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - Coin
+  - PowerUp
   - Trash
   - TrashBin
   - 

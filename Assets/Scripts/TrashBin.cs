@@ -7,30 +7,52 @@ public class TrashBin : MonoBehaviour
 {
     private static bool hasItem;
     public TrashBar trashBar;
+    //public ScoreScript scoreScript;
+    [SerializeField]
+    private GameManager gameManager;
 
     public static int trashPutAway = 0;
     // Start is called before the first frame update
     void Start()
     {
-        hasItem = PickUp.hasItem;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(hasItem)
-            Debug.Log("Player is holding trash");
+        //hasItem = PlayerController.hasItem;
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Trash"))
-        {
-            Debug.Log("Collision with trash bin");
-            Destroy(other.gameObject);
-            ScoreScript.scoreValue += 10;
-            trashPutAway += 1;
-            PickUp.hasItem = false;
-        }
+        //if (gameManager.gameOver == false) {
+            if(other.gameObject.CompareTag("Plastic") && this.gameObject.tag == "PlasticBin")
+            {
+                //Debug.Log("Collision with plastic trash bin");
+                Destroy(other.gameObject);
+                ScoreScript.scoreValue += 10;
+                trashPutAway += 1;
+                PickUp.hasItem = false;
+            }
+            else if(other.gameObject.CompareTag("GlassTrash") && this.gameObject.tag == "GlassBin")
+            {
+                //Debug.Log("Collision with glass trash bin");
+                Destroy(other.gameObject);
+                ScoreScript.scoreValue += 10;
+                trashPutAway += 1;
+                PickUp.hasItem = false;
+            }
+            else if(other.gameObject.CompareTag("MetalTrash") && this.gameObject.tag == "MetalBin")
+            {
+                //Debug.Log("Collision with metal trash bin");
+                Destroy(other.gameObject);
+                ScoreScript.scoreValue += 10;
+                trashPutAway += 1;
+                PickUp.hasItem = false;
+            }
+            else if(other.gameObject.CompareTag("OrganicTrash") && this.gameObject.tag == "OrganicTrashBin")
+            {
+                //Debug.Log("Collision with organic trash bin");
+                Destroy(other.gameObject);
+                ScoreScript.scoreValue += 10;
+                trashPutAway += 1;
+                PickUp.hasItem = false;
+            }
+        //}
     }
 }

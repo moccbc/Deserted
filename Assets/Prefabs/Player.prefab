@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7521965973116148924}
   - component: {fileID: 2976429137526985043}
   - component: {fileID: 2909921595643242813}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -144,11 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696d76c3b881a8648aacf70785466221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
   jumpHeight: 2
   gravityValue: -9.81
   anim: {fileID: 7560771587163505270}
   theSR: {fileID: 0}
+  canPickUp: 0
 --- !u!135 &7521965973116148913
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 7521965974186171814}
   - component: {fileID: 7521965974186171809}
   - component: {fileID: 7521965974186171808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 7521965974745212490}
   - component: {fileID: 7521965974745212491}
   - component: {fileID: 7560771587163505270}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

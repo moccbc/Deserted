@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,13 +28,10 @@ public class PlayerController : MonoBehaviour
     private bool jumped = false;
 
     // Variables for picking up mechanics
-    //GameObject item;
-    //public static bool hasItem;
     public static bool pickedup;
     public static bool dropped;
-    //private bool nearItem;
-
-    //GameObject playerPrefab;
+    public bool canPickUp;
+    GameObject PowerUp;
 
     private void Start()
     {
@@ -118,8 +118,53 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
+        if(canPickUp && PowerUp != null && pickedup)
+        {
+            switch (PowerUp.tag)
+            {
+                // The sprint power up was picked up
+                case "SprintPowerUp":
+                    StartCoroutine(SprintPowerUp());    // Call coroutine to execute the power up for 15 seconds
+                    Destroy(PowerUp);                   // Destroy the power up as soon as it's picked up
+                    break;
+
+                // The Destroy Trash power up was picked up
+                case "DestroyTrashPowerUp":
+                    StartCoroutine(DestroyTrashPowerUp());
+                    Destroy(PowerUp);
+                    break;
+            }
+        }
+
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
     }
+
+    // Coroutine to execute the sprint power up
+    IEnumerator SprintPowerUp()
+    {
+        playerSpeed = 12f;                            // Increase the movement speed from 7 to 12
+        yield return new WaitForSeconds(10);        // Wait for 10 seconds
+        playerSpeed = 7f;                             // Return movement speed back to normal once 10 seconds have elapsed
+    }
+
+    // Coroutine to execute the destroy trash power up. 
+    IEnumerator DestroyTrashPowerUp()
+    {
+        PickUp.hasDestroyTrashPowerUp = true;       // Set the bool to true in PickUp script so that trash can be destroyed
+        yield return new WaitForSeconds(15);        // Wait for 15 seconds
+        PickUp.hasDestroyTrashPowerUp = false;      // Reset the bool to false to end the power up
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 7)
+        {
+            Debug.Log("Collided with power up");
+            canPickUp = true;
+            PowerUp = other.gameObject;
+        }
+    }
 }
+

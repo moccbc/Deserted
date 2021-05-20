@@ -1,0 +1,17 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 26.10.2017 16:35:56
+
+newmtl Bottle_LR01
+	Ns 9.999999
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588235 0.588235 0.588235
+	Kd 0.588235 0.588235 0.588235
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka E:\Cad\glass-bottle--4.snapshot.12\end1\Bottle_LR01_albedo.jpg
+	map_Kd E:\Cad\glass-bottle--4.snapshot.12\end1\Bottle_LR01_albedo.jpg
+	map_d E:\Cad\glass-bottle--4.snapshot.12\end1\Bottle-LR01TransparentMap.jpg

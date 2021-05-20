@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
+    [SerializeField]
     private TrashSpawn TrashSpawner;
     [SerializeField]
     private GameManager gameManager;
     
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

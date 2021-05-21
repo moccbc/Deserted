@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public static bool pickedup;
     public static bool dropped;
     public bool canPickUp;
+    public bool canMove;
     GameObject PowerUp;
 
     private void Start()
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
         //hasItem = false;
         pickedup = false;
         dropped = false;
+        //canMove = true;
         //nearItem = false;
         //item = null;
     }
@@ -73,72 +75,82 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
-        controller.Move(move * Time.deltaTime * playerSpeed); 
+        //check to see if game over or pause menu has frozen movement
+        if (canMove)
+        {
+            Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
+            controller.Move(move * Time.deltaTime * playerSpeed);
+            // Running Animation
+            if ((move.x != 0) || (move.z != 0))
+            { // Note Y-Axis is always 0
+                anim.SetBool("isRunning", true);
+            }
+            else
+            {
+                anim.SetBool("isRunning", false);
+            }
+            // Flipping Orientation
+            if (!theSR.flipX && move.x < 0)
+            {
+                theSR.flipX = true;
+                // flipAnim.SetTrigger("Flip");
+            }
+            else if (theSR.flipX && move.x > 0)
+            {
+                theSR.flipX = false;
+                // flipAnim.SetTrigger("Flip");
+            }
+            if (playerVelocity.y == 0)
+            {
+                anim.SetBool("isJumping", false);
+                anim.SetBool("isFalling", false);
+                // Debug.Log(playerVelocity.y);
+            }
 
-        // Running Animation
-        if((move.x != 0) || (move.z != 0)) { // Note Y-Axis is always 0
-            anim.SetBool("isRunning", true);  
+            if (playerVelocity.y > 0)
+            {
+                anim.SetBool("isJumping", true);
+            }
+
+            if (playerVelocity.y < 0)
+            {
+                anim.SetBool("isJumping", false);
+                anim.SetBool("isFalling", true);
+            }
+
+            // Changes the height position of the player..
+            if (canMove && jumped && groundedPlayer)
+            {
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            }
+
+            if (canMove && canPickUp && PowerUp != null && pickedup)
+            {
+                switch (PowerUp.tag)
+                {
+                    // The sprint power up was picked up
+                    case "SprintPowerUp":
+                        StartCoroutine(SprintPowerUp());    // Call coroutine to execute the power up for 15 seconds
+                        Destroy(PowerUp);                   // Destroy the power up as soon as it's picked up
+                        break;
+
+                    // The Destroy Trash power up was picked up
+                    case "DestroyTrashPowerUp":
+                        StartCoroutine(DestroyTrashPowerUp());
+                        Destroy(PowerUp);
+                        break;
+                }
+            }
+
+            playerVelocity.y += gravityValue * Time.deltaTime;
+            controller.Move(playerVelocity * Time.deltaTime);
         }
-        else {
+        //if game over or pause menu has been activated, set animation isRunning to false
+        else
+        {
             anim.SetBool("isRunning", false);
         }
-
-        // Flipping Orientation
-        if(!theSR.flipX && move.x < 0)
-        {
-            theSR.flipX = true;
-            // flipAnim.SetTrigger("Flip");
-        } else if(theSR.flipX && move.x > 0) {
-            theSR.flipX = false;
-            // flipAnim.SetTrigger("Flip");
-        }
-
-        if(playerVelocity.y == 0)
-        {
-            anim.SetBool("isJumping", false);
-            anim.SetBool("isFalling", false);
-            // Debug.Log(playerVelocity.y);
-        }
-
-        if(playerVelocity.y > 0)
-        {
-            anim.SetBool("isJumping", true);
-        }
-
-        if(playerVelocity.y < 0)
-        {
-            anim.SetBool("isJumping", false);
-            anim.SetBool("isFalling", true);
-        }
-
-        // Changes the height position of the player..
-        if(jumped && groundedPlayer)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
-
-        if(canPickUp && PowerUp != null && pickedup)
-        {
-            switch (PowerUp.tag)
-            {
-                // The sprint power up was picked up
-                case "SprintPowerUp":
-                    StartCoroutine(SprintPowerUp());    // Call coroutine to execute the power up for 15 seconds
-                    Destroy(PowerUp);                   // Destroy the power up as soon as it's picked up
-                    break;
-
-                // The Destroy Trash power up was picked up
-                case "DestroyTrashPowerUp":
-                    StartCoroutine(DestroyTrashPowerUp());
-                    Destroy(PowerUp);
-                    break;
-            }
-        }
-
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
-
+        
     }
 
     // Coroutine to execute the sprint power up

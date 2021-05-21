@@ -30,7 +30,8 @@ public class TrashSpawn : MonoBehaviour
         InvokeRepeating("Spawn", 2f, repeatTime);
 
         // Call the SpawnPowerUp function every 15 secs after the first 5 seconds have elapsed
-        InvokeRepeating("SpawnPowerUp", 5f, powerUpSpawnInterval);  
+        InvokeRepeating("SpawnPowerUp", 5f, powerUpSpawnInterval);
+        isSpawning = false;
     }
 
     // Spawns a random power up every 15 secs (adjustable) starting after the first 5 seconds of the game have elapsed

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         //hasItem = false;
         pickedup = false;
         dropped = false;
-        canMove = true;
+        //canMove = true;
         //nearItem = false;
         //item = null;
     }

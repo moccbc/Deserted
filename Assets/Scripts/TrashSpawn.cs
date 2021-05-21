@@ -36,27 +36,29 @@ public class TrashSpawn : MonoBehaviour
     // Spawns a random power up every 15 secs (adjustable) starting after the first 5 seconds of the game have elapsed
     public void SpawnPowerUp()
     {
-        GameObject newPowerUp;
-        int powerUpType = random.Next(1, 3);    // Create a random number between 1 and 2, inclusive. Represents the power up type
-        
-        switch(powerUpType)
+        if (isSpawning == true)
         {
-            // Spawn a Sprint power up at a random location on the map
-            case 1:
-                newPowerUp = GameObject.Instantiate(SprintPowerUp);
-                newPowerUp.transform.position = new Vector3(0.41f, 10f, 8.72f);   // Try to spawn in the center of the arena
-                break;
+            GameObject newPowerUp;
+            int powerUpType = random.Next(1, 3);    // Create a random number between 1 and 2, inclusive. Represents the power up type
 
-            // Spawn a Destroy Trash power up at a random location on the map
-            case 2:
-                newPowerUp = GameObject.Instantiate(DestroyTrashPowerUp);
-                newPowerUp.transform.position = new Vector3(0.41f, 10f, 8.72f);   // Try to spawn in the center of the arena
-                break;
+            switch (powerUpType)
+            {
+                // Spawn a Sprint power up at a random location on the map
+                case 1:
+                    newPowerUp = GameObject.Instantiate(SprintPowerUp);
+                    newPowerUp.transform.position = new Vector3(0.41f, 10f, 8.72f);   // Try to spawn in the center of the arena
+                    break;
 
-            default:
-                break;
+                // Spawn a Destroy Trash power up at a random location on the map
+                case 2:
+                    newPowerUp = GameObject.Instantiate(DestroyTrashPowerUp);
+                    newPowerUp.transform.position = new Vector3(0.41f, 10f, 8.72f);   // Try to spawn in the center of the arena
+                    break;
+
+                default:
+                    break;
+            }
         }
-
         //Debug.Log("SPAWN POWER UP");
     }
 

@@ -33,7 +33,8 @@ public class PickUp : MonoBehaviour
                 {
                     objToPickUp.GetComponent<Rigidbody>().isKinematic = true;
                     objToPickUp.GetComponent<Rigidbody>().useGravity = false;
-                    objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 0, 0);
+                    objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 1.2f, 0);
+                    objToPickUp.transform.eulerAngles = new Vector3(0, 0, 0);
                     objToPickUp.transform.parent = gameObject.transform;
                     hasItem = true;
                 }

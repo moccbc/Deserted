@@ -9,7 +9,9 @@ public class GameOverMenu : MonoBehaviour
     private TrashSpawn TrashSpawner;
     [SerializeField]
     private GameManager gameManager;
-    
+    [SerializeField]
+    private CountdownController countdown;
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -17,8 +19,9 @@ public class GameOverMenu : MonoBehaviour
     public void PlayAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        TrashSpawner.isSpawning = true;
-        gameManager.gameOver = false;
+        //TrashSpawner.isSpawning = true;
+        //gameManager.gameOver = false;
+        //StartCoroutine(countdown.CountdownToStart());
     }
 
     public void QuitGame()

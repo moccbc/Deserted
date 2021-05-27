@@ -24,12 +24,21 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     
-    private Vector2 movementInput = Vector2.zero; 
+    private Vector2 movementInput = Vector2.zero;
     private bool jumped = false;
 
     // Variables for picking up mechanics
     public static bool pickedup;
+    public static bool player1PickUpPressed;
+    public static bool player2PickUpPressed;
+    public static bool player3PickUpPressed;
+    public static bool player4PickUpPressed;
     public static bool dropped;
+    public static bool player1DropPressed;
+    public static bool player2DropPressed;
+    public static bool player3DropPressed;
+    public static bool player4DropPressed;
+
     public bool canPickUp;
     public bool canMove;
     GameObject PowerUp;
@@ -58,10 +67,42 @@ public class PlayerController : MonoBehaviour
 
     public void OnPickup(InputAction.CallbackContext context) {
         pickedup = context.action.triggered;
+
+        switch(gameObject.tag)
+        {
+            case "Player1":
+                player1PickUpPressed = context.action.triggered;
+                break;
+            case "Player2":
+                player2PickUpPressed = context.action.triggered;
+                break;
+            case "Player3":
+                player3PickUpPressed = context.action.triggered;
+                break;
+            case "Player4":
+                player4PickUpPressed = context.action.triggered;
+                break;
+        }
     }
 
     public void OnDrop(InputAction.CallbackContext context) {
         dropped = context.action.triggered;
+
+        switch(gameObject.tag)
+        {
+            case "Player1":
+                player1DropPressed = context.action.triggered;
+                break;
+            case "Player2":
+                player2DropPressed = context.action.triggered;
+                break;
+            case "Player3":
+                player3DropPressed = context.action.triggered;
+                break;
+            case "Player4":
+                player4DropPressed = context.action.triggered;
+                break;
+        }
     }
 
     void Update()
@@ -164,9 +205,16 @@ public class PlayerController : MonoBehaviour
     // Coroutine to execute the destroy trash power up. 
     IEnumerator DestroyTrashPowerUp()
     {
-        PickUp.hasDestroyTrashPowerUp = true;       // Set the bool to true in PickUp script so that trash can be destroyed
-        yield return new WaitForSeconds(15);        // Wait for 15 seconds
-        PickUp.hasDestroyTrashPowerUp = false;      // Reset the bool to false to end the power up
+        switch(gameObject.tag)
+        {
+            case "Player1":
+                Player1PickUp.hasDestroyTrashPowerUp = true;       // Set the bool to true in PickUp script so that trash can be destroyed
+                yield return new WaitForSeconds(15);        // Wait for 15 seconds
+                Player1PickUp.hasDestroyTrashPowerUp = false;      // Reset the bool to false to end the power up
+                break;
+            default:
+                break;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,0 +1,22 @@
+Adobe After Effects v18.2 Windows 64 render log for project “More Desert Plants.aep”
+
+Rendering started on 5/27/2021 at 11:45:24 AM
+
+  5/27/2021 11:45:24 AM: Starting composition “Yucca”.
+
+  Output To: D:\Unity\4DYM\CS179-URP\CS179\Assets\Animations\Plants\Yucca_[#####].png    5/27/2021 11:45:25 AM: Finished composition “Yucca”.
+
+
+  5/27/2021 11:45:25 AM: Starting composition “Short Cactus”.
+
+  Output To: D:\Unity\4DYM\CS179-URP\CS179\Assets\Animations\Plants\Short Cactus_[#####].png    5/27/2021 11:45:25 AM: Finished composition “Short Cactus”.
+
+
+  5/27/2021 11:45:25 AM: Starting composition “CactusRose”.
+
+  Output To: D:\Unity\4DYM\CS179-URP\CS179\Assets\Animations\Plants\CactusRose_[#####].png    5/27/2021 11:45:25 AM: Finished composition “CactusRose”.
+
+
+  Total Time Elapsed: 1 Seconds
+Log closed on 5/27/2021 at 11:45:25 AM
+

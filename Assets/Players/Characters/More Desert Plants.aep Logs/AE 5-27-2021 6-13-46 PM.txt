@@ -1,0 +1,17 @@
+Adobe After Effects v18.2 Windows 64 render log for project “More Desert Plants.aep”
+
+Rendering started on 5/27/2021 at 6:13:46 PM
+
+  5/27/2021 6:13:46 PM: Starting composition “Big Cactus 1”.
+
+  Output To: D:\Unity\4DYM\CS179-URP\CS179\Assets\Animations\Plants\Big Cactus 1_[#####].png    5/27/2021 6:13:46 PM: Finished composition “Big Cactus 1”.
+
+
+  5/27/2021 6:13:46 PM: Starting composition “Big Cactus 2”.
+
+  Output To: D:\Unity\4DYM\CS179-URP\CS179\Assets\Animations\Plants\Big Cactus 2_[#####].png    5/27/2021 6:13:46 PM: Finished composition “Big Cactus 2”.
+
+
+  Total Time Elapsed: 0 Seconds
+Log closed on 5/27/2021 at 6:13:46 PM
+

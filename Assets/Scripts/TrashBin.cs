@@ -7,6 +7,35 @@ public class TrashBin : MonoBehaviour
 {
     public static int trashPutAway = 0;
 
+    private void setHasItem(Transform player)
+    {
+        switch(player.tag)
+        {
+            case "Player1":
+                Debug.Log("Player 1 deposited trash");
+                Player1PickUp.hasItem1 = false;
+                //Debug.Log(Player1PickUp.hasItem);
+                break;
+            case "Player2":
+                Debug.Log("Player 2 deposited trash");
+                Player2PickUp.hasItem2 = false;
+                //Debug.Log(Player1PickUp.hasItem);
+                break;
+            case "Player3":
+                Debug.Log("Player 3 deposited trash");
+                Player3PickUp.hasItem3 = false;
+                //Debug.Log(Player1PickUp.hasItem);
+                break;
+            case "Player4":
+                Debug.Log("Player 4 deposited trash");
+                Player4PickUp.hasItem4 = false;
+                //Debug.Log(Player1PickUp.hasItem);
+                break;
+            default:
+                break;
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Plastic") && gameObject.tag == "PlasticBin")
@@ -15,7 +44,7 @@ public class TrashBin : MonoBehaviour
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            PickUp.hasItem = false;
+            setHasItem(other.transform.parent);
         }
         else if(other.gameObject.CompareTag("GlassTrash") && gameObject.tag == "GlassBin")
         {
@@ -23,7 +52,7 @@ public class TrashBin : MonoBehaviour
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            PickUp.hasItem = false;
+            setHasItem(other.transform.parent);
         }
         else if(other.gameObject.CompareTag("MetalTrash") && gameObject.tag == "MetalBin")
         {
@@ -31,7 +60,7 @@ public class TrashBin : MonoBehaviour
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            PickUp.hasItem = false;
+            setHasItem(other.transform.parent);
         }
         else if(other.gameObject.CompareTag("OrganicTrash") && gameObject.tag == "OrganicTrashBin")
         {
@@ -39,7 +68,7 @@ public class TrashBin : MonoBehaviour
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            PickUp.hasItem = false;
+            setHasItem(other.transform.parent);
         }
     }
 }

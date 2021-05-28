@@ -383,7 +383,7 @@
                 {
                     "name": "",
                     "id": "bdcfd962-7bc5-4d81-a4b2-2cd4fcbc61ff",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player4",

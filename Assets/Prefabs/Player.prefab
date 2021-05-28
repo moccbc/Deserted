@@ -149,6 +149,7 @@ MonoBehaviour:
   anim: {fileID: 7560771587163505270}
   theSR: {fileID: 0}
   canPickUp: 0
+  canMove: 0
 --- !u!135 &7521965973116148913
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 7521965973116148912}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b6faf2550d9056438272b248760ec84, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -211,7 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044bcc217222c40bdb2341063699925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trashSpawn: {fileID: 1161200209995451226, guid: cb84684470c874e8cb218d7c64534672, type: 3}
 --- !u!1 &7521965974186171813
 GameObject:
   m_ObjectHideFlags: 0

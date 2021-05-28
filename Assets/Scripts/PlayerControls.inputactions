@@ -36,13 +36,21 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "e227278c-f311-43be-9abc-858548c62b0f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "a1e6a1ba-09d5-4f12-87d3-6d9bbd3189f3",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -53,7 +61,7 @@
                 {
                     "name": "",
                     "id": "bf118c75-380f-4c93-aa0b-67dc69ee1f7a",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player2",
@@ -75,7 +83,7 @@
                 {
                     "name": "",
                     "id": "83383ff3-88d9-4479-b971-b7ca0d8d7555",
-                    "path": "<Keyboard>/numpad0",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player4",
@@ -84,7 +92,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "WASD",
+                    "name": "2QWE",
                     "id": "ed8cda55-a2a9-42e8-b90d-7aa4d99047e5",
                     "path": "2DVector",
                     "interactions": "",
@@ -97,7 +105,7 @@
                 {
                     "name": "up",
                     "id": "98d6e25b-e8a3-4ad0-a9a3-b462af946359",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -108,7 +116,7 @@
                 {
                     "name": "down",
                     "id": "7d47bfef-8ff3-421d-8be5-982de77c75df",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -119,7 +127,7 @@
                 {
                     "name": "left",
                     "id": "19f3df58-8117-43a6-b39f-b90684300aff",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -130,7 +138,7 @@
                 {
                     "name": "right",
                     "id": "a0642c45-a2ff-4cc1-9583-daecfefd1592",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -139,7 +147,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "TFGH",
+                    "name": "SZXC",
                     "id": "5fb2b71d-8d90-435b-a868-65013492a49a",
                     "path": "2DVector",
                     "interactions": "",
@@ -152,7 +160,7 @@
                 {
                     "name": "up",
                     "id": "a9fe7c20-288f-48ba-8549-972c2c8d8e46",
-                    "path": "<Keyboard>/t",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player2",
@@ -163,7 +171,7 @@
                 {
                     "name": "down",
                     "id": "a4d8d5cc-4858-482d-a718-b35ed37929ea",
-                    "path": "<Keyboard>/g",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player2",
@@ -174,7 +182,7 @@
                 {
                     "name": "left",
                     "id": "4b825f6b-5c69-4c86-8e5c-a3ad596021ac",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player2",
@@ -185,7 +193,7 @@
                 {
                     "name": "right",
                     "id": "380d0346-ce79-436c-a80b-bb152c9d6e86",
-                    "path": "<Keyboard>/h",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player2",
@@ -306,7 +314,7 @@
                 {
                     "name": "",
                     "id": "22eb299b-f4f1-404f-abee-beec4a4da5aa",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/0",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -317,7 +325,7 @@
                 {
                     "name": "",
                     "id": "597d0bc4-ad3f-4b49-af45-54e1172aa27d",
-                    "path": "<Keyboard>/y",
+                    "path": "<Keyboard>/leftBracket",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player2",
@@ -328,7 +336,7 @@
                 {
                     "name": "",
                     "id": "80a4f673-75ce-42ff-b5c1-62a88c2d68b9",
-                    "path": "<Keyboard>/o",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player3",
@@ -339,7 +347,7 @@
                 {
                     "name": "",
                     "id": "5c05ca4d-eb82-4a9d-b092-41881b2954ac",
-                    "path": "<Keyboard>/numpad1",
+                    "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player4",
@@ -350,7 +358,7 @@
                 {
                     "name": "",
                     "id": "0289b87b-d41d-4168-be1a-c2ecbc1865f4",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/minus",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player1",
@@ -361,7 +369,7 @@
                 {
                     "name": "",
                     "id": "cb3cdbb0-038f-42aa-b94d-c67a24d6feeb",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/rightBracket",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player2",
@@ -372,7 +380,7 @@
                 {
                     "name": "",
                     "id": "439b4a7a-9d2b-4e59-a89e-858d7ed75140",
-                    "path": "<Keyboard>/u",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player3",
@@ -383,11 +391,55 @@
                 {
                     "name": "",
                     "id": "bdcfd962-7bc5-4d81-a4b2-2cd4fcbc61ff",
-                    "path": "<Keyboard>/rightShift",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player4",
                     "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eba00a01-c910-473e-bece-2c50a069f5d3",
+                    "path": "<Keyboard>/equals",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player1",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68a21334-93d7-4609-b424-9027753311a1",
+                    "path": "<Keyboard>/backslash",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player2",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6cc6574-cc56-4c9a-bce9-38eeaedf50f1",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player3",
+                    "action": "Throw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a708a878-dc69-4a1b-8f33-7991dfbd86f7",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player4",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

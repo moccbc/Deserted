@@ -81,8 +81,8 @@ public class Player4PickUp : MonoBehaviour
 
             switch (gameObject.tag)
             {
-                case "Player2":
-                    Debug.Log("Player 2 can pick up");
+                case "Player4":
+                    Debug.Log("Player 4 can pick up");
                     canPickUp4 = true;
                     objToPickUp = other.gameObject;
                     break;

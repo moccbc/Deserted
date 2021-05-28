@@ -19,8 +19,8 @@ public class TrashSpawn : MonoBehaviour
 
     public float repeatTime = 5f;
     public float powerUpSpawnInterval = 15f;    // Spawn power-ups every 15 seconds
-    public const float COLUMNS = 23f;           // 5 - 25
-    public const float ROWS = 21.15f;           // -23 - 23
+    public const float COLUMNS = 20f;           // 0 - 20
+    public const float ROWS = 28.5f;           // -28.5 - 28.5
     public float trashCount = 0;
     public bool isSpawning;
 
@@ -68,7 +68,7 @@ public class TrashSpawn : MonoBehaviour
         {
             float y = 10f;
             float RandomRow = (float)random.Next(-(int)ROWS,(int)ROWS);     // Generate a Random X value
-            float RandomCol = (float)random.Next(5, (int)COLUMNS);          // Generate a Random Z value
+            float RandomCol = (float)random.Next(0, (int)COLUMNS);          // Generate a Random Z value
 
             GameObject newTrash;
             int trashType = random.Next(0, 4);  // Create a random number between 0 and 3 inclusive 

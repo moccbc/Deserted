@@ -31,12 +31,10 @@ public class PlayerController : MonoBehaviour
     private bool jumped = false;
 
     // Variables for picking up mechanics
-    public static bool pickedup;
     public static bool player1PickUpPressed;
     public static bool player2PickUpPressed;
     public static bool player3PickUpPressed;
     public static bool player4PickUpPressed;
-    public static bool dropped;
     public static bool player1DropPressed;
     public static bool player2DropPressed;
     public static bool player3DropPressed;
@@ -53,8 +51,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        pickedup = false;
-        dropped = false;
     }
 
     public void OnMove(InputAction.CallbackContext context) {
@@ -66,8 +62,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnPickup(InputAction.CallbackContext context) {
-        pickedup = context.action.triggered;
-
         switch(gameObject.tag)
         {
             case "Player1":
@@ -86,8 +80,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnDrop(InputAction.CallbackContext context) {
-        dropped = context.action.triggered;
-
         switch(gameObject.tag)
         {
             case "Player1":
@@ -183,7 +175,12 @@ public class PlayerController : MonoBehaviour
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             }
 
-            if (canMove && (canPickUp1 || canPickUp2 || canPickUp3 || canPickUp4) && PowerUp != null && pickedup)
+            if (canMove && 
+                (canPickUp1 && player1PickUpPressed 
+                || canPickUp2 && player2PickUpPressed
+                || canPickUp3 && player3PickUpPressed
+                || canPickUp4 && player4PickUpPressed) 
+                && PowerUp != null)
             {
                 switch (PowerUp.tag)
                 {

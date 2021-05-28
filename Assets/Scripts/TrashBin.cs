@@ -21,6 +21,16 @@ public class TrashBin : MonoBehaviour
                 Player2PickUp.hasItem2 = false;
                 //Debug.Log(Player1PickUp.hasItem);
                 break;
+            case "Player3":
+                Debug.Log("Player 3 deposited trash");
+                Player3PickUp.hasItem3 = false;
+                //Debug.Log(Player1PickUp.hasItem);
+                break;
+            case "Player4":
+                Debug.Log("Player 4 deposited trash");
+                Player4PickUp.hasItem4 = false;
+                //Debug.Log(Player1PickUp.hasItem);
+                break;
             default:
                 break;
         }

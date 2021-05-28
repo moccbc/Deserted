@@ -76,8 +76,6 @@ public class Player2PickUp : MonoBehaviour
         if (other.gameObject.layer == 8 && !hasItem2)
         {
             Debug.Log("Trash trigger enter");
-            //canPickUp = true;
-            //objToPickUp = other.gameObject;
 
             switch (gameObject.tag)
             {
@@ -94,7 +92,6 @@ public class Player2PickUp : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        //Debug.Log("Trash trigger exit");
         canPickUp2 = false;
     }
 }

@@ -46,22 +46,15 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-        //hasItem = false;
         pickedup = false;
         dropped = false;
-        //canMove = true;
-        //nearItem = false;
-        //item = null;
     }
 
     public void OnMove(InputAction.CallbackContext context) {
         movementInput = context.ReadValue<Vector2>();
-        //Debug.Log(movementInput);
     }
 
     public void OnJump(InputAction.CallbackContext context) {
-        //Debug.Log("Jumping");
-        //Debug.Log(groundedPlayer);
         jumped = context.action.triggered;
     }
 
@@ -107,7 +100,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // anim.SetFloat("moveSpeed", playerVelocity.magnitude); // How fast is player moving?
         // If the player is grounded and it is not jumping
         groundedPlayer = controller.isGrounded;
         if(groundedPlayer && playerVelocity.y < 0)

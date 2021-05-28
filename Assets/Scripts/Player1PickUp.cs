@@ -55,6 +55,7 @@ public class Player1PickUp : MonoBehaviour
             objToPickUp.transform.parent = null; // make the object no be a child of the hands
             hasItem1 = false;
         }
+
     }
 
     private void FixedUpdate()
@@ -68,6 +69,11 @@ public class Player1PickUp : MonoBehaviour
         if (right && hasItem1)
         {
                 objToPickUp.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
+        }
+        // If the player was previously carrying trash, but is not any longer, reset hasItem to false
+        if (gameObject.transform.childCount == 2)
+        {
+            hasItem1 = false;
         }
     }
 

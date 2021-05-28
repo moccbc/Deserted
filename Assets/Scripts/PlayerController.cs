@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
     public static bool player3DropPressed;
     public static bool player4DropPressed;
 
-    public bool canPickUp;
     public bool canPickUp1;
     public bool canPickUp2;
     public bool canPickUp3;
@@ -299,6 +298,32 @@ public class PlayerController : MonoBehaviour
                     
             }
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+            switch(gameObject.tag)
+            {
+                case "Player1":
+                    Debug.Log("Player 1 exited power up trigger");
+                    canPickUp1 = false;
+                    break;
+                case "Player2":
+                    Debug.Log("Player 2 exited power up trigger");
+                    canPickUp2 = false;
+                    break;
+                case "Player3":
+                    Debug.Log("Player 3 exited power up trigger");
+                    canPickUp3 = false;
+                    break;
+                case "Player4":
+                    Debug.Log("Player 4 exited power up trigger");
+                    canPickUp4 = false;
+                    break;
+                default:
+                    break;
+                    
+            }
     }
 }
 

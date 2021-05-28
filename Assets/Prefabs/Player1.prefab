@@ -19,6 +19,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1737301293954192340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431787840327817823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 044bcc217222c40bdb2341063699925f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &3289689286537749813
 Animator:
   serializedVersion: 3
@@ -49,9 +61,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148912, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7521965973116148913, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148913, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521965973116148915, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
       propertyPath: m_RootOrder
@@ -193,7 +213,8 @@ PrefabInstance:
       propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2909921595643242813, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
 --- !u!1 &8431787840327817823 stripped
 GameObject:

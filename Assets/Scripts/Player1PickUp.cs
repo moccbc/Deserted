@@ -33,7 +33,10 @@ public class Player1PickUp : MonoBehaviour
                 {
                     objToPickUp.GetComponent<Rigidbody>().isKinematic = true;
                     objToPickUp.GetComponent<Rigidbody>().useGravity = false;
-                    objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 1.2f, 0);
+                    if (left)
+                        objToPickUp.transform.position = gameObject.transform.position + new Vector3(-2f, 1.2f, 0);
+                    else if (right)
+                        objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 1.2f, 0);
                     objToPickUp.transform.eulerAngles = new Vector3(0, 0, 0);
                     objToPickUp.transform.parent = gameObject.transform;
                     hasItem1 = true;
@@ -62,12 +65,12 @@ public class Player1PickUp : MonoBehaviour
         // Shows the trash on the left side of the player when moving towards the left
         if (left && hasItem1)
         {
-                objToPickUp.transform.position = gameObject.transform.position +  new Vector3(-2f,0,0);
+            objToPickUp.transform.position = gameObject.transform.position + new Vector3(-2f,1.2f,0);
         }
         // Shows the trash on the right side of the player when moving towards the right
         if (right && hasItem1)
         {
-                objToPickUp.transform.position = gameObject.transform.position +  new Vector3(2f,0,0);
+            objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f,1.2f,0);
         }
     }
 

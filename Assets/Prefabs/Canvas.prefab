@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d497abc57a475459ac64bcb92cdc00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeStart: 5
+  timeStart: 10
   textBox: {fileID: 1054049578170099714}
   timerSlider: {fileID: 6583149959743262440}
   gamePlaying: 0

@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
     GameObject PowerUp;
 
+    //  Audio Stuff
+    public AudioSource SFXPowerUp;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
@@ -256,6 +259,7 @@ public class PlayerController : MonoBehaviour
     // Coroutine to execute the sprint power up
     IEnumerator SprintPowerUp()
     {
+        SFXPowerUp.Play();
         switch(gameObject.tag)
         {
             case "Player1":
@@ -284,6 +288,7 @@ public class PlayerController : MonoBehaviour
     // Coroutine to execute the destroy trash power up. 
     IEnumerator DestroyTrashPowerUp()
     {
+        SFXPowerUp.Play();
         switch(gameObject.tag)
         {
             case "Player1":

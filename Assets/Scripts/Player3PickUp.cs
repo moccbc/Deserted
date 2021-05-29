@@ -10,6 +10,9 @@ public class Player3PickUp : MonoBehaviour
     public static bool left;
     public static bool right;
     public static bool hasDestroyTrashPowerUp;
+    public AudioSource SFXPickUp;
+    public AudioSource SFXDrop;
+    private bool SFXPlayed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +42,11 @@ public class Player3PickUp : MonoBehaviour
                     objToPickUp.transform.eulerAngles = new Vector3(0, 0, 0);
                     objToPickUp.transform.parent = gameObject.transform;
                     hasItem3 = true;
+
+                    if(!SFXPlayed) {
+                        SFXPickUp.Play();
+                        SFXPlayed = true;
+                    }
                 }
                 // The object to be picked up is trash and the player has the destroy trash power up
                 else if (objToPickUp != null && objToPickUp.layer == 8 && hasDestroyTrashPowerUp)
@@ -56,6 +64,8 @@ public class Player3PickUp : MonoBehaviour
             objToPickUp.GetComponent<Rigidbody>().useGravity = true;
             objToPickUp.transform.parent = null; // make the object no be a child of the hands
             hasItem3 = false;
+            SFXDrop.Play();
+            SFXPlayed = false;
         }
     }
 
@@ -75,6 +85,7 @@ public class Player3PickUp : MonoBehaviour
         if (gameObject.transform.childCount == 2)
         {
             hasItem3 = false;
+            SFXPlayed = false;
         }
     }
 

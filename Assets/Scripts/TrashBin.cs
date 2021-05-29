@@ -6,6 +6,8 @@ using UnityEngine;
 public class TrashBin : MonoBehaviour
 {
     public static int trashPutAway = 0;
+    public AudioSource SFXCorrectTrash;
+    public AudioSource SFXWrongTrash;
 
     private void setHasItem(Transform player)
     {
@@ -44,15 +46,26 @@ public class TrashBin : MonoBehaviour
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            setHasItem(other.transform.parent);
+            if(other.transform.parent != null)
+                setHasItem(other.transform.parent);
+            
+            SFXCorrectTrash.Play();
         }
+        // else if(gameObject.tag == "PlasticBin" && !other.gameObject.CompareTag("Plastic")  )
+        // {
+        //     Debug.Log("Wrong Trash");
+        //     SFXWrongTrash.Play();
+        // }
         else if(other.gameObject.CompareTag("GlassTrash") && gameObject.tag == "GlassBin")
         {
             //Debug.Log("Collision with glass trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            setHasItem(other.transform.parent);
+            if(other.transform.parent != null)
+                setHasItem(other.transform.parent);
+            
+            SFXCorrectTrash.Play();
         }
         else if(other.gameObject.CompareTag("MetalTrash") && gameObject.tag == "MetalBin")
         {
@@ -60,7 +73,10 @@ public class TrashBin : MonoBehaviour
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            setHasItem(other.transform.parent);
+            if(other.transform.parent != null)
+                setHasItem(other.transform.parent);
+            
+            SFXCorrectTrash.Play();
         }
         else if(other.gameObject.CompareTag("OrganicTrash") && gameObject.tag == "OrganicTrashBin")
         {
@@ -68,7 +84,15 @@ public class TrashBin : MonoBehaviour
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
             trashPutAway += 1;
-            setHasItem(other.transform.parent);
+            if(other.transform.parent != null)
+                setHasItem(other.transform.parent);
+            
+            SFXCorrectTrash.Play();
+        } else if(other.gameObject.layer != 6 && (trashPutAway != 0))
+        {
+            Debug.Log("Wrong Trash");
+            SFXWrongTrash.Play();
         }
+        
     }
 }

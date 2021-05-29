@@ -11,6 +11,10 @@ public class PickUp : MonoBehaviour
     public static bool left;
     public static bool right;
     public static bool hasDestroyTrashPowerUp;
+    public AudioSource SFXPickUp;
+    public AudioClip SFXPU;
+    public AudioSource SFXDrop;
+    private bool SFXPlayed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +40,12 @@ public class PickUp : MonoBehaviour
                     objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 0, 0);
                     objToPickUp.transform.parent = gameObject.transform;
                     hasItem = true;
+
+                    if(!SFXPlayed) {
+                        SFXPickUp.PlayOneShot(SFXPU);
+                        SFXPlayed = true;
+                    }
+                     // Play Pick Up Sound effect!
                 }
                 // The object to be picked up is trash and the player has the destroy trash power up
                 else if(objToPickUp != null && objToPickUp.layer == 8 && hasDestroyTrashPowerUp)
@@ -53,6 +63,8 @@ public class PickUp : MonoBehaviour
             objToPickUp.GetComponent<Rigidbody>().useGravity = true;
             objToPickUp.transform.parent = null; // make the object no be a child of the hands
             hasItem = false;
+            SFXDrop.Play(); // Play Drop Sound Effect!
+            SFXPlayed = false;
         }
     }
 
@@ -85,6 +97,7 @@ public class PickUp : MonoBehaviour
     {
         Debug.Log("Trash trigger exit");
         canPickUp = false;
+        SFXPlayed = false;
     }
 
 }

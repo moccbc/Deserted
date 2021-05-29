@@ -68,6 +68,11 @@ public class Player3PickUp : MonoBehaviour
         {
             objToPickUp.transform.position = gameObject.transform.position + new Vector3(2f, 0, 0);
         }
+        // If the player was previously carrying trash, but is not any longer, reset hasItem to false
+        if (gameObject.transform.childCount == 2)
+        {
+            hasItem3 = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

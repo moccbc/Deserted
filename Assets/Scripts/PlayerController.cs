@@ -54,6 +54,51 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context) {
         movementInput = context.ReadValue<Vector2>();
+        Debug.Log(movementInput);
+
+        switch(gameObject.tag)
+        {
+            case "Player1":
+                if (movementInput.x < 0) {
+                    Player1PickUp.left = true;
+                    Player1PickUp.right = false;
+                }
+                else if (movementInput.x > 0) {
+                    Player1PickUp.left = false;
+                    Player1PickUp.right = true;
+                }
+                break;
+            case "Player2":
+                if (movementInput.x < 0) {
+                    Player2PickUp.left = true;
+                    Player2PickUp.right = false;
+                }
+                else if (movementInput.x > 0) {
+                    Player2PickUp.left = false;
+                    Player2PickUp.right = true;
+                }
+                break;
+            case "Player3":
+                if (movementInput.x < 0) {
+                    Player3PickUp.left = true;
+                    Player3PickUp.right = false;
+                }
+                else if (movementInput.x > 0) {
+                    Player3PickUp.left = false;
+                    Player3PickUp.right = true;
+                }
+                break;
+            case "Player4":
+                if (movementInput.x < 0) {
+                    Player4PickUp.left = true;
+                    Player4PickUp.right = false;
+                }
+                else if (movementInput.x > 0) {
+                    Player4PickUp.left = false;
+                    Player4PickUp.right = true;
+                }
+                break;
+        }
     }
 
     public void OnJump(InputAction.CallbackContext context) {

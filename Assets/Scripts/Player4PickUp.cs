@@ -6,7 +6,7 @@ public class Player4PickUp : MonoBehaviour
 {
     public static bool canPickUp4;
     public static bool hasItem4;
-    GameObject objToPickUp;
+    public static GameObject objToPickUp;
     public static bool left;
     public static bool right;
     public static bool hasDestroyTrashPowerUp;
@@ -56,6 +56,7 @@ public class Player4PickUp : MonoBehaviour
             objToPickUp.GetComponent<Rigidbody>().useGravity = true;
             objToPickUp.transform.parent = null; // make the object no be a child of the hands
             hasItem4 = false;
+            objToPickUp = null;
         }
     }
 

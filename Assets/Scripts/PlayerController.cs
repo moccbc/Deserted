@@ -71,42 +71,42 @@ public class PlayerController : MonoBehaviour
         {
             case "Player1":
                 if (movementInput.x < 0) {
-                    Player1PickUp.left = true;
-                    Player1PickUp.right = false;
+                    PickUp.facingLeft[1] = true;
+                    PickUp.facingRight[1] = false;
                 }
                 else if (movementInput.x > 0) {
-                    Player1PickUp.left = false;
-                    Player1PickUp.right = true;
+                    PickUp.facingLeft[1] = false;
+                    PickUp.facingRight[1] = true;
                 }
                 break;
             case "Player2":
                 if (movementInput.x < 0) {
-                    Player2PickUp.left = true;
-                    Player2PickUp.right = false;
+                    PickUp.facingLeft[2] = true;
+                    PickUp.facingRight[2] = false;
                 }
                 else if (movementInput.x > 0) {
-                    Player2PickUp.left = false;
-                    Player2PickUp.right = true;
+                    PickUp.facingLeft[2] = false;
+                    PickUp.facingRight[2] = true;
                 }
                 break;
             case "Player3":
                 if (movementInput.x < 0) {
-                    Player3PickUp.left = true;
-                    Player3PickUp.right = false;
+                    PickUp.facingLeft[3] = true;
+                    PickUp.facingRight[3] = false;
                 }
                 else if (movementInput.x > 0) {
-                    Player3PickUp.left = false;
-                    Player3PickUp.right = true;
+                    PickUp.facingLeft[3] = false;
+                    PickUp.facingRight[3] = true;
                 }
                 break;
             case "Player4":
                 if (movementInput.x < 0) {
-                    Player4PickUp.left = true;
-                    Player4PickUp.right = false;
+                    PickUp.facingLeft[4] = true;
+                    PickUp.facingRight[4] = false;
                 }
                 else if (movementInput.x > 0) {
-                    Player4PickUp.left = false;
-                    Player4PickUp.right = true;
+                    PickUp.facingLeft[4] = false;
+                    PickUp.facingRight[4] = true;
                 }
                 break;
         }

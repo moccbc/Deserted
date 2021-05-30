@@ -47,8 +47,16 @@ public class PlayerController : MonoBehaviour
     public bool canMove;
     GameObject PowerUp;
 
-    //  Audio Stuff
-    public AudioSource SFXPowerUp;
+    // Variables for throwing mechanics
+    public static bool player1ThrowPressed;
+    public static bool player2ThrowPressed;
+    public static bool player3ThrowPressed;
+    public static bool player4ThrowPressed;
+
+    public static float player1ThrowPower = 20.0f;
+    public static float player2ThrowPower = 20.0f;
+    public static float player3ThrowPower = 20.0f;
+    public static float player4ThrowPower = 20.0f;
 
     private void Start()
     {
@@ -144,6 +152,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnThrow(InputAction.CallbackContext context) {
+        switch(gameObject.tag)
+        {
+            case "Player1":
+                player1ThrowPressed = context.action.triggered;
+                break;
+            case "Player2":
+                player2ThrowPressed = context.action.triggered;
+                break;
+            case "Player3":
+                player3ThrowPressed = context.action.triggered;
+                break;
+            case "Player4":
+                player4ThrowPressed = context.action.triggered;
+                break;
+        }
+    }
+
     void Update()
     {
         // If the player is grounded and it is not jumping
@@ -159,6 +185,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 move = new Vector3(movementInput.x, 0, movementInput.y);
 
+            // Separate the controller movements for when players pick up the powerup
             switch(gameObject.tag)
             {
                 case "Player1":
@@ -259,7 +286,6 @@ public class PlayerController : MonoBehaviour
     // Coroutine to execute the sprint power up
     IEnumerator SprintPowerUp()
     {
-        SFXPowerUp.Play();
         switch(gameObject.tag)
         {
             case "Player1":
@@ -288,7 +314,6 @@ public class PlayerController : MonoBehaviour
     // Coroutine to execute the destroy trash power up. 
     IEnumerator DestroyTrashPowerUp()
     {
-        SFXPowerUp.Play();
         switch(gameObject.tag)
         {
             case "Player1":

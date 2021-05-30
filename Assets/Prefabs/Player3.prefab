@@ -400,6 +400,34 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: Player/Throw[/Keyboard/equals,/Keyboard/backslash,/Keyboard/g,/Keyboard/n]
       objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6191651758126142493}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnThrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
       propertyPath: anim
       value: 
@@ -468,6 +496,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7521965973116148912, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
   m_PrefabInstance: {fileID: 4435568767843551395}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6191651758126142493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+  m_PrefabInstance: {fileID: 4435568767843551395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191651758126142483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696d76c3b881a8648aacf70785466221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6191651758685728490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7521965974745212489, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}

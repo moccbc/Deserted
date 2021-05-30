@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
     public static float player3ThrowPower = 20.0f;
     public static float player4ThrowPower = 20.0f;
 
+    public AudioSource SFXPowerUp;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
@@ -286,6 +288,7 @@ public class PlayerController : MonoBehaviour
     // Coroutine to execute the sprint power up
     IEnumerator SprintPowerUp()
     {
+        SFXPowerUp.Play();
         switch(gameObject.tag)
         {
             case "Player1":
@@ -314,6 +317,7 @@ public class PlayerController : MonoBehaviour
     // Coroutine to execute the destroy trash power up. 
     IEnumerator DestroyTrashPowerUp()
     {
+        SFXPowerUp.Play();
         switch(gameObject.tag)
         {
             case "Player1":

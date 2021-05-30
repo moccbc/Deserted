@@ -10,7 +10,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 95bbe6dea6d8b5d47bd24ac1eb451103, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b817497ec59fbde4da504d0d1b189e84, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -106,7 +106,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b817497ec59fbde4da504d0d1b189e84, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 95bbe6dea6d8b5d47bd24ac1eb451103, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -319,8 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044bcc217222c40bdb2341063699925f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SFXPickUp: {fileID: 5489822155931152257}
-  SFXDrop: {fileID: 1922019244459011704}
+  SFXPickUp: {fileID: 1922019244459011704}
+  SFXDrop: {fileID: 5489822155931152257}
 --- !u!95 &3289689286537749813
 Animator:
   serializedVersion: 3
@@ -431,6 +431,34 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: Player/Throw[/Keyboard/equals,/Keyboard/backslash,/Keyboard/g,/Keyboard/n]
       objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8431787840327817809}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnThrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148925, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
       propertyPath: anim
       value: 
@@ -531,6 +559,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7521965973116148912, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
   m_PrefabInstance: {fileID: 2116936384934266607}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8431787840327817809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+  m_PrefabInstance: {fileID: 2116936384934266607}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431787840327817823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696d76c3b881a8648aacf70785466221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8431787841957666982 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7521965974745212489, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}

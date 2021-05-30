@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2934376044489136875
+--- !u!1 &2168330071748263083
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4661457345854182965}
-  - component: {fileID: 6695186256363678361}
+  - component: {fileID: 5992859632315822553}
+  - component: {fileID: 2405229193237223638}
   m_Layer: 0
-  m_Name: S2_00000
+  m_Name: Succulent2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4661457345854182965
+--- !u!4 &5992859632315822553
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2934376044489136875}
+  m_GameObject: {fileID: 2168330071748263083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.038, y: 0.3, z: -0.068}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 0.097905874, y: 0.665, z: -0.074}
+  m_LocalScale: {x: 0.083333336, y: 0.083333336, z: 1}
   m_Children: []
   m_Father: {fileID: 2260608157859030945}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6695186256363678361
+--- !u!212 &2405229193237223638
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2934376044489136875}
+  m_GameObject: {fileID: 2168330071748263083}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 47ffd1985af4f424b9d73a17cdf30f55, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 47dad7e17b7d7d144b37adac6539f497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 8}
+  m_Size: {x: 24.03, y: 27.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7190665404254156641}
   - component: {fileID: 2400279817837886734}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: Succulent 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Transform:
   m_LocalPosition: {x: 0.5681343, y: 3.820485, z: -1.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4661457345854182965}
+  - {fileID: 5992859632315822553}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

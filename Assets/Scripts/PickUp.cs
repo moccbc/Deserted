@@ -15,7 +15,7 @@ public class PickUp : MonoBehaviour
     public static bool[] facingLeft  = new bool[players];
     public static bool[] facingRight = new bool[players];
     public static bool[] hasDestroyTrashPowerUp = new bool[players];
-    public static CharacterController[] controllers = new CharacterController[players];
+    public static GameObject[] controllers = new GameObject[players];
 
 
     // Start is called before the first frame update
@@ -31,16 +31,16 @@ public class PickUp : MonoBehaviour
         }
         switch(gameObject.tag) {
             case "Player1":
-                controllers[1] = gameObject.GetComponent<CharacterController>();
+                controllers[1] = gameObject;
                 break;
             case "Player2":
-                controllers[2] = gameObject.GetComponent<CharacterController>();
+                controllers[2] = gameObject;
                 break;
             case "Player3":
-                controllers[3] = gameObject.GetComponent<CharacterController>();
+                controllers[3] = gameObject;
                 break;
             case "Player4":
-                controllers[4] = gameObject.GetComponent<CharacterController>();
+                controllers[4] = gameObject;
                 break;
             default:
                 break;
@@ -55,7 +55,8 @@ public class PickUp : MonoBehaviour
         {
             Debug.Log("Player " + player + " can pickup");
             // If the object to be picked up is trash, and the destroy trash power up is not activated, then pick it up
-            if (objects[player] != null && objects[player].layer == 8 && !hasDestroyTrashPowerUp[player])
+            if (objects[player] != null && objects[player].layer == 8 
+                && !hasDestroyTrashPowerUp[player] && objects[player].transform.parent == null)
             {
                 Debug.Log(gameObject);
                 Debug.Log(gameObject.tag);
@@ -88,6 +89,7 @@ public class PickUp : MonoBehaviour
             objects[player] = null;
         }
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -97,12 +99,12 @@ public class PickUp : MonoBehaviour
         else if (PlayerController.player2PickUpPressed) {
             grabItem(2);
         }
-        //else if (PlayerController.player3PickUpPressed) {
-        //    grabItem(3);
-        //}
-        //else if (PlayerController.player4PickUpPressed) {
-        //    grabItem(4);
-        //}
+        else if (PlayerController.player3PickUpPressed) {
+            grabItem(3);
+        }
+        else if (PlayerController.player4PickUpPressed) {
+            grabItem(4);
+        }
 
         if (PlayerController.player1DropPressed) {
             dropItem(1);
@@ -110,12 +112,12 @@ public class PickUp : MonoBehaviour
         else if (PlayerController.player2DropPressed) {
             dropItem(2);
         }
-        //else if (PlayerController.player3DropPressed) {
-        //    dropItem(3);
-        //}
-        //else if (PlayerController.player4DropPressed) {
-        //    dropItem(4);
-        //}
+        else if (PlayerController.player3DropPressed) {
+            dropItem(3);
+        }
+        else if (PlayerController.player4DropPressed) {
+            dropItem(4);
+        }
     }
 
     private void faceLeftRight(int player) {
@@ -131,18 +133,23 @@ public class PickUp : MonoBehaviour
         }
     }
 
+    void updateHasItem(int player) {
+        if (controllers[player].transform.childCount == 2)
+        {
+            //Debug.Log("Resetting hasItem for player " + player);
+            hasItem[player] = false;
+        }
+    }
+
     private void FixedUpdate()
     {
-        faceLeftRight(1); //faceLeftRight(2); faceLeftRight(3); faceLeftRight(4);
-
         // If the player was previously carrying trash, but is not any longer, reset hasItem to false
-        //if (gameObject.transform.childCount == 2)
-        //{
-        //    hasItem[1] = false;
-        //    hasItem[2] = false;
-        //    hasItem[3] = false;
-        //    hasItem[4] = false;
-        //}
+        updateHasItem(1); 
+        updateHasItem(2);
+        updateHasItem(3);
+        updateHasItem(4);
+
+        faceLeftRight(1); faceLeftRight(2); faceLeftRight(3); faceLeftRight(4);
     }
 
     void setItem(int player, Collider other) {
@@ -162,15 +169,15 @@ public class PickUp : MonoBehaviour
             case "Player1":
                 setItem(1, other);
                 break;
-            //case "Player2":
-            //    setItem(2, other);
-            //    break;
-            //case "Player3":
-            //    setItem(3, other);
-            //    break;
-            //case "Player4":
-            //    setItem(4, other);
-            //    break;
+            case "Player2":
+                setItem(2, other);
+                break;
+            case "Player3":
+                setItem(3, other);
+                break;
+            case "Player4":
+                setItem(4, other);
+                break;
             default:
                 break;
         }
@@ -182,15 +189,15 @@ public class PickUp : MonoBehaviour
             case "Player1":
                 canPickUp[1] = false;
                 break;
-            //case "Player2":
-            //    canPickUp[2] = false;
-            //    break;
-            //case "Player3":
-            //    canPickUp[3] = false;
-            //    break;
-            //case "Player4":
-            //    canPickUp[4] = false;
-            //    break;
+            case "Player2":
+                canPickUp[2] = false;
+                break;
+            case "Player3":
+                canPickUp[3] = false;
+                break;
+            case "Player4":
+                canPickUp[4] = false;
+                break;
             default:
                 break;
         }

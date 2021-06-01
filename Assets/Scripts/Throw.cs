@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Throw : MonoBehaviour
 {
+    public AudioSource SFXThrow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,7 @@ public class Throw : MonoBehaviour
     void Update()
     {
         if (PlayerController.player1ThrowPressed && Player1PickUp.hasItem1) {
+            SFXThrow.Play();
             Debug.Log("Player 1 throwing!");
             GameObject PlayerObj = Player1PickUp.objToPickUp;
             Player1PickUp.objToPickUp = null;
@@ -29,6 +32,7 @@ public class Throw : MonoBehaviour
             Player1PickUp.hasItem1 = false;
         }
         else if (PlayerController.player2ThrowPressed && Player2PickUp.hasItem2) {
+            SFXThrow.Play();
             Debug.Log("Player 2 throwing!");
             GameObject PlayerObj = Player2PickUp.objToPickUp;
             Player2PickUp.objToPickUp = null;
@@ -44,6 +48,7 @@ public class Throw : MonoBehaviour
             Player2PickUp.hasItem2 = false;
         }
         else if (PlayerController.player3ThrowPressed && Player3PickUp.hasItem3) {
+            SFXThrow.Play();
             Debug.Log("Player 3 throwing!");
             GameObject PlayerObj = Player3PickUp.objToPickUp;
             Player3PickUp.objToPickUp = null;
@@ -59,6 +64,7 @@ public class Throw : MonoBehaviour
             Player3PickUp.hasItem3 = false;
         }
         else if (PlayerController.player4ThrowPressed && Player4PickUp.hasItem4) {
+            SFXThrow.Play();
             Debug.Log("Player 4 throwing!");
             GameObject PlayerObj = Player4PickUp.objToPickUp;
             Player4PickUp.objToPickUp = null;

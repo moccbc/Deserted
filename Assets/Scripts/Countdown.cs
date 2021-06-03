@@ -23,22 +23,22 @@ public class Countdown : MonoBehaviour
         {
             if (Mathf.Floor(seconds) > 9)
             {
-                textBox.text = minutes + ":" + seconds;
+                textBox.text = minutes + ":" + seconds.ToString("F1");
             }
             else
             {
-                textBox.text = minutes + ":0" + seconds;
+                textBox.text = minutes + ":0" + seconds.ToString("F1");
             }
         }
         else
         {
             if (Mathf.Floor(seconds) > 9)
             {
-                textBox.text = "0" + minutes + ":" + seconds;
+                textBox.text = "0" + minutes + ":" + seconds.ToString("F1");
             }
             else
             {
-                textBox.text = "0" + minutes + ":0" + seconds;
+                textBox.text = "0" + minutes + ":0" + seconds.ToString("F1");
             }
         }
     }
@@ -74,22 +74,22 @@ public class Countdown : MonoBehaviour
         {
             if (Mathf.Floor(seconds) > 9)
             {
-                textBox.text = minutes + ":" + seconds;
+                textBox.text = minutes + ":" + seconds.ToString("F1");
             }
             else
             {
-                textBox.text = minutes + ":0" + seconds;
+                textBox.text = minutes + ":0" + seconds.ToString("F1");
             }
         }
         else
         {
             if (Mathf.Floor(seconds) > 9)
             {
-                textBox.text = "0" + minutes + ":" + seconds;
+                textBox.text = "0" + minutes + ":" + seconds.ToString("F1");
             }
             else
             {
-                textBox.text = "0" + minutes + ":0" + seconds;
+                textBox.text = "0" + minutes + ":0" + seconds.ToString("F1");
             }
         }
     }

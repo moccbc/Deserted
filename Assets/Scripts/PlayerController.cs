@@ -62,6 +62,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject spawner;
     private TrashSpawn trashSpawn;
+    public GameObject floatingSprint;
+    public GameObject floatingThrow;
+    public GameObject floatingDestroy;
+    public GameObject floatingFreeze;
 
     private void Start()
     {
@@ -304,7 +308,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator SprintPowerUp()
     {
         SFXPowerUp.Play();
-        switch(gameObject.tag)
+        Instantiate(floatingSprint, transform.position, Quaternion.identity);
+        switch (gameObject.tag)
         {
             case "Player1":
                 player1Speed = 12f;                         // Increase the movement speed from 7 to 12
@@ -333,7 +338,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator DestroyTrashPowerUp()
     {
         SFXPowerUp.Play();
-        switch(gameObject.tag)
+        Instantiate(floatingDestroy, transform.position, Quaternion.identity);
+        switch (gameObject.tag)
         {
             case "Player1":
                 Player1PickUp.hasDestroyTrashPowerUp = true;        // Set the bool to true in PickUp script so that trash can be destroyed
@@ -364,7 +370,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator ThrowPowerUp()
     {
         SFXPowerUp.Play();
-        switch(gameObject.tag)
+        Instantiate(floatingThrow, transform.position, Quaternion.identity);
+        switch (gameObject.tag)
         {
             case "Player1":
                 player1ThrowPower = 50f;                         // Increase the movement speed from 7 to 12
@@ -391,7 +398,9 @@ public class PlayerController : MonoBehaviour
 
      IEnumerator FreezePowerUp()
     {
+
         SFXPowerUp.Play();
+        Instantiate(floatingFreeze, transform.position, Quaternion.identity);
         trashSpawn.isSpawning = false;
         canMove = false;
         yield return new WaitForSeconds(10);

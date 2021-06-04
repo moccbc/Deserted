@@ -583,6 +583,22 @@ PrefabInstance:
       propertyPath: playerSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingThrow
+      value: 
+      objectReference: {fileID: 3475461313987699993, guid: 401fda5796e8b0c4d8fe0b3b133edaef, type: 3}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingFreeze
+      value: 
+      objectReference: {fileID: 695469464935480643, guid: 621dbd81371896441b29061840d351c2, type: 3}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingSprint
+      value: 
+      objectReference: {fileID: 6595885584139127022, guid: d559ab9fc7ebacd4caa352d8ea381edc, type: 3}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingDestroy
+      value: 
+      objectReference: {fileID: 7050138073394256613, guid: df404147af22d54479be4e82901ed884, type: 3}
     - target: {fileID: 7521965974745212490, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.16666667

@@ -288,20 +288,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-6002054757431864878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6191651758126142483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51b48dff0cbba4cf69aad525fc63eee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SFXPickUp: {fileID: 7619969772603120507}
-  SFXDrop: {fileID: 8280721390826316630}
 --- !u!82 &9214513974207299514
 AudioSource:
   m_ObjectHideFlags: 0
@@ -398,6 +384,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6002054757431864878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191651758126142483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b48dff0cbba4cf69aad525fc63eee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFXPickUp: {fileID: 7619969772603120507}
+  SFXDrop: {fileID: 8280721390826316630}
 --- !u!95 &3630438527868329651
 Animator:
   serializedVersion: 3
@@ -540,6 +540,18 @@ PrefabInstance:
       propertyPath: SFXPowerUp
       value: 
       objectReference: {fileID: 5569924791550172532}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingThrow
+      value: 
+      objectReference: {fileID: 3475461313987699993, guid: 401fda5796e8b0c4d8fe0b3b133edaef, type: 3}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingSprint
+      value: 
+      objectReference: {fileID: 4357618923151423996, guid: cd38dc0a7f18b5f4da1f3232ee6dea96, type: 3}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingDestroy
+      value: 
+      objectReference: {fileID: 7050138073394256613, guid: df404147af22d54479be4e82901ed884, type: 3}
     - target: {fileID: 7521965974745212490, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.16666667

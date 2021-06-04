@@ -5,6 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    
     public static GameManager instance;
     public GameObject gameOverPanel;
     [SerializeField]

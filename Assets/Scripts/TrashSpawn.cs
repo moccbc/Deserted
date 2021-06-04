@@ -16,6 +16,7 @@ public class TrashSpawn : MonoBehaviour
     // The different power ups to be spawned
     public GameObject SprintPowerUp;
     public GameObject DestroyTrashPowerUp;
+    public GameObject ThrowPowerUp;
 
     public float repeatTime = 5f;
     public float powerUpSpawnInterval = 15f;    // Spawn power-ups every 15 seconds
@@ -40,7 +41,7 @@ public class TrashSpawn : MonoBehaviour
         if (isSpawning == true)
         {
             GameObject newPowerUp;
-            int powerUpType = random.Next(1, 3);    // Create a random number between 1 and 2, inclusive. Represents the power up type
+            int powerUpType = random.Next(1, 4);    // Create a random number between 1 and 2, inclusive. Represents the power up type
 
             switch (powerUpType)
             {
@@ -55,7 +56,12 @@ public class TrashSpawn : MonoBehaviour
                     newPowerUp = GameObject.Instantiate(DestroyTrashPowerUp);
                     newPowerUp.transform.position = new Vector3(0.41f, 10f, 8.72f);   // Try to spawn in the center of the arena
                     break;
-
+                
+                case 3:
+                    newPowerUp = GameObject.Instantiate(ThrowPowerUp);
+                    newPowerUp.transform.position = new Vector3(0.41f, 10f, 8.72f); // Try to spawn in the center of the arena
+                    break;
+                    
                 default:
                     break;
             }

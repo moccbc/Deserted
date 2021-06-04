@@ -271,6 +271,11 @@ public class PlayerController : MonoBehaviour
                         StartCoroutine(DestroyTrashPowerUp());
                         Destroy(PowerUp);
                         break;
+
+                    case "ThrowPowerUp":
+                        StartCoroutine(ThrowPowerUp());
+                        Destroy(PowerUp);
+                        break;
                 }
             }
 
@@ -344,6 +349,36 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
+     // Coroutine to execute the sprint power up
+    IEnumerator ThrowPowerUp()
+    {
+        SFXPowerUp.Play();
+        switch(gameObject.tag)
+        {
+            case "Player1":
+                player1ThrowPower = 50f;                         // Increase the movement speed from 7 to 12
+                yield return new WaitForSeconds(10);        // Wait for 10 seconds
+                player1ThrowPower = 20f;                          // Return movement speed back to normal once 10 seconds have elapsed
+                break;
+            case "Player2":
+                player2ThrowPower = 50f;                        // Increase the movement speed from 7 to 12
+                yield return new WaitForSeconds(10);        // Wait for 10 seconds
+                player2ThrowPower = 20f;                           // Return movement speed back to normal once 10 seconds have elapsed
+                break;
+            case "Player3":
+                player3ThrowPower = 50f;                      // Increase the movement speed from 7 to 12
+                yield return new WaitForSeconds(10);        // Wait for 10 seconds
+                player3ThrowPower = 20f;                          // Return movement speed back to normal once 10 seconds have elapsed
+                break;
+            case "Player4":
+                player4ThrowPower = 50f;                         // Increase the movement speed from 7 to 12
+                yield return new WaitForSeconds(10);        // Wait for 10 seconds
+                player4ThrowPower = 20f;                         // Return movement speed back to normal once 10 seconds have elapsed
+                break;
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

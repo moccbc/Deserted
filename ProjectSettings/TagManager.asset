@@ -19,6 +19,7 @@ TagManager:
   - Player3
   - Player4
   - ThrowPowerUp
+  - FreezePowerUp
   layers:
   - Default
   - TransparentFX

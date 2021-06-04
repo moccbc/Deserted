@@ -60,14 +60,19 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource SFXPowerUp;
 
+    public GameObject spawner;
+    private TrashSpawn trashSpawn;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        spawner = GameObject.Find("TrashSpawner");
+        trashSpawn = spawner.GetComponent<TrashSpawn>();
     }
 
     public void OnMove(InputAction.CallbackContext context) {
         movementInput = context.ReadValue<Vector2>();
-        Debug.Log(movementInput);
+        //Debug.Log(movementInput);
 
         switch(gameObject.tag)
         {
@@ -276,6 +281,11 @@ public class PlayerController : MonoBehaviour
                         StartCoroutine(ThrowPowerUp());
                         Destroy(PowerUp);
                         break;
+
+                    case "FreezePowerUp":
+                        StartCoroutine(FreezePowerUp());
+                        Destroy(PowerUp);
+                        break;
                 }
             }
 
@@ -379,6 +389,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+     IEnumerator FreezePowerUp()
+    {
+        SFXPowerUp.Play();
+        trashSpawn.isSpawning = false;
+        yield return new WaitForSeconds(10);
+        trashSpawn.isSpawning = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

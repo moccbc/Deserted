@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
     public GameObject floatingSprint;
     public GameObject floatingThrow;
     public GameObject floatingDestroy;
+    public GameObject floatingFreeze;
 
     private void Start()
     {
@@ -397,7 +398,9 @@ public class PlayerController : MonoBehaviour
 
      IEnumerator FreezePowerUp()
     {
+
         SFXPowerUp.Play();
+        Instantiate(floatingFreeze, transform.position, Quaternion.identity);
         trashSpawn.isSpawning = false;
         canMove = false;
         yield return new WaitForSeconds(10);

@@ -545,6 +545,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3475461313987699993, guid: 401fda5796e8b0c4d8fe0b3b133edaef, type: 3}
     - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
+      propertyPath: floatingFreeze
+      value: 
+      objectReference: {fileID: 695469464935480643, guid: 621dbd81371896441b29061840d351c2, type: 3}
+    - target: {fileID: 7521965973116148926, guid: 07cc380d009e08a4595ddfdff2f39f10, type: 3}
       propertyPath: floatingSprint
       value: 
       objectReference: {fileID: 4357618923151423996, guid: cd38dc0a7f18b5f4da1f3232ee6dea96, type: 3}

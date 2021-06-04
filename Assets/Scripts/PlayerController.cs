@@ -393,8 +393,10 @@ public class PlayerController : MonoBehaviour
     {
         SFXPowerUp.Play();
         trashSpawn.isSpawning = false;
+        canMove = false;
         yield return new WaitForSeconds(10);
         trashSpawn.isSpawning = true;
+        canMove = true;
     }
 
     private void OnTriggerEnter(Collider other)

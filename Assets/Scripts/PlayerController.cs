@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource SFXPowerUp;
 
+    public GameObject floatingSprint;
+    public GameObject floatingThrow;
+    public GameObject floatingDestroy;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
@@ -294,7 +298,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator SprintPowerUp()
     {
         SFXPowerUp.Play();
-        switch(gameObject.tag)
+        Instantiate(floatingSprint, transform.position, Quaternion.identity);
+        switch (gameObject.tag)
         {
             case "Player1":
                 player1Speed = 12f;                         // Increase the movement speed from 7 to 12
@@ -323,7 +328,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator DestroyTrashPowerUp()
     {
         SFXPowerUp.Play();
-        switch(gameObject.tag)
+        Instantiate(floatingDestroy, transform.position, Quaternion.identity);
+        switch (gameObject.tag)
         {
             case "Player1":
                 Player1PickUp.hasDestroyTrashPowerUp = true;        // Set the bool to true in PickUp script so that trash can be destroyed
@@ -354,7 +360,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator ThrowPowerUp()
     {
         SFXPowerUp.Play();
-        switch(gameObject.tag)
+        Instantiate(floatingThrow, transform.position, Quaternion.identity);
+        switch (gameObject.tag)
         {
             case "Player1":
                 player1ThrowPower = 50f;                         // Increase the movement speed from 7 to 12

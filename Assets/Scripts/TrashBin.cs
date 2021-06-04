@@ -8,6 +8,7 @@ public class TrashBin : MonoBehaviour
     public static int trashPutAway = 0;
     public AudioSource SFXCorrectTrash;
     public AudioSource SFXWrongTrash;
+    public GameObject floatingPoints;
 
     private void setHasItem(Transform player)
     {
@@ -42,6 +43,7 @@ public class TrashBin : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Plastic") && gameObject.tag == "PlasticBin")
         {
+            Instantiate(floatingPoints, transform.position, Quaternion.identity);
             //Debug.Log("Collision with plastic trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
@@ -58,6 +60,7 @@ public class TrashBin : MonoBehaviour
         // }
         else if(other.gameObject.CompareTag("GlassTrash") && gameObject.tag == "GlassBin")
         {
+            Instantiate(floatingPoints, transform.position, Quaternion.identity);
             //Debug.Log("Collision with glass trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
@@ -69,6 +72,7 @@ public class TrashBin : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("MetalTrash") && gameObject.tag == "MetalBin")
         {
+            Instantiate(floatingPoints, transform.position, Quaternion.identity);
             //Debug.Log("Collision with metal trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;
@@ -80,6 +84,7 @@ public class TrashBin : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("OrganicTrash") && gameObject.tag == "OrganicTrashBin")
         {
+            Instantiate(floatingPoints, transform.position, Quaternion.identity);
             //Debug.Log("Collision with organic trash bin");
             Destroy(other.gameObject);
             ScoreScript.scoreValue += 10;

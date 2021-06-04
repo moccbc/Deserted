@@ -3,7 +3,11 @@ guid: 696d76c3b881a8648aacf70785466221
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - anim: {instanceID: 0}
+  - theSR: {instanceID: 0}
+  - SFXPowerUp: {instanceID: 0}
+  - floatingSprint: {fileID: 6595885584139127022, guid: d559ab9fc7ebacd4caa352d8ea381edc, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

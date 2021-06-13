@@ -7,7 +7,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    // [SerializeField]
+    // The number of players in game + 1 because player 0 doesn't make sense.
+    public static int players = 5;
+
     public static float player1Speed = 7.0f;
     public static float player2Speed = 7.0f;
     public static float player3Speed = 7.0f;
@@ -31,14 +33,11 @@ public class PlayerController : MonoBehaviour
     private bool jumped = false;
 
     // Variables for picking up mechanics
-    public static bool player1PickUpPressed;
-    public static bool player2PickUpPressed;
-    public static bool player3PickUpPressed;
-    public static bool player4PickUpPressed;
-    public static bool player1DropPressed;
-    public static bool player2DropPressed;
-    public static bool player3DropPressed;
-    public static bool player4DropPressed;
+    public static Hands[] hands = new Hands[players];
+    public static bool[] pickUpPressed = new bool[players];
+    public static bool[] dropPressed = new bool[players];
+    public static bool[] hasDestroyTrashPowerUp = new bool[players];
+    public static bool[] facingLeft = new bool[players];
 
     public bool canPickUp1;
     public bool canPickUp2;
@@ -72,52 +71,49 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         spawner = GameObject.Find("TrashSpawner");
         trashSpawn = spawner.GetComponent<TrashSpawn>();
+        for (int i = 0; i < players; i++) {
+            pickUpPressed[i] = false;
+            dropPressed[i] = false;
+            hasDestroyTrashPowerUp[i] = false;
+            facingLeft[i] = true;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context) {
         movementInput = context.ReadValue<Vector2>();
-        //Debug.Log(movementInput);
 
         switch(gameObject.tag)
         {
             case "Player1":
                 if (movementInput.x < 0) {
-                    Player1PickUp.left = true;
-                    Player1PickUp.right = false;
+                    facingLeft[1] = true;
                 }
                 else if (movementInput.x > 0) {
-                    Player1PickUp.left = false;
-                    Player1PickUp.right = true;
+                    facingLeft[1] = false;
                 }
                 break;
             case "Player2":
                 if (movementInput.x < 0) {
-                    Player2PickUp.left = true;
-                    Player2PickUp.right = false;
+                    facingLeft[2] = true;
                 }
                 else if (movementInput.x > 0) {
-                    Player2PickUp.left = false;
-                    Player2PickUp.right = true;
+                    facingLeft[2] = false;
                 }
                 break;
             case "Player3":
                 if (movementInput.x < 0) {
-                    Player3PickUp.left = true;
-                    Player3PickUp.right = false;
+                    facingLeft[3] = true;
                 }
                 else if (movementInput.x > 0) {
-                    Player3PickUp.left = false;
-                    Player3PickUp.right = true;
+                    facingLeft[3] = false;
                 }
                 break;
             case "Player4":
                 if (movementInput.x < 0) {
-                    Player4PickUp.left = true;
-                    Player4PickUp.right = false;
+                    facingLeft[4] = true;
                 }
                 else if (movementInput.x > 0) {
-                    Player4PickUp.left = false;
-                    Player4PickUp.right = true;
+                    facingLeft[4] = false;
                 }
                 break;
         }
@@ -131,16 +127,16 @@ public class PlayerController : MonoBehaviour
         switch(gameObject.tag)
         {
             case "Player1":
-                player1PickUpPressed = context.action.triggered;
+                pickUpPressed[1] = context.action.triggered;
                 break;
             case "Player2":
-                player2PickUpPressed = context.action.triggered;
+                pickUpPressed[2] = context.action.triggered;
                 break;
             case "Player3":
-                player3PickUpPressed = context.action.triggered;
+                pickUpPressed[3] = context.action.triggered;
                 break;
             case "Player4":
-                player4PickUpPressed = context.action.triggered;
+                pickUpPressed[4] = context.action.triggered;
                 break;
         }
     }
@@ -149,16 +145,16 @@ public class PlayerController : MonoBehaviour
         switch(gameObject.tag)
         {
             case "Player1":
-                player1DropPressed = context.action.triggered;
+                dropPressed[1] = context.action.triggered;
                 break;
             case "Player2":
-                player2DropPressed = context.action.triggered;
+                dropPressed[2] = context.action.triggered;
                 break;
             case "Player3":
-                player3DropPressed = context.action.triggered;
+                dropPressed[3] = context.action.triggered;
                 break;
             case "Player4":
-                player4DropPressed = context.action.triggered;
+                dropPressed[4] = context.action.triggered;
                 break;
         }
     }
@@ -261,10 +257,10 @@ public class PlayerController : MonoBehaviour
             }
 
             if (canMove && 
-                (canPickUp1 && player1PickUpPressed 
-                || canPickUp2 && player2PickUpPressed
-                || canPickUp3 && player3PickUpPressed
-                || canPickUp4 && player4PickUpPressed) 
+                (  canPickUp1 && pickUpPressed[1] 
+                || canPickUp2 && pickUpPressed[2]
+                || canPickUp3 && pickUpPressed[3]
+                || canPickUp4 && pickUpPressed[4]) 
                 && PowerUp != null)
             {
                 switch (PowerUp.tag)
@@ -342,31 +338,31 @@ public class PlayerController : MonoBehaviour
         switch (gameObject.tag)
         {
             case "Player1":
-                Player1PickUp.hasDestroyTrashPowerUp = true;        // Set the bool to true in PickUp script so that trash can be destroyed
+                hasDestroyTrashPowerUp[1] = true;        // Set the bool to true in PickUp script so that trash can be destroyed
                 yield return new WaitForSeconds(15);                // Wait for 15 seconds
-                Player1PickUp.hasDestroyTrashPowerUp = false;       // Reset the bool to false to end the power up
+                hasDestroyTrashPowerUp[1] = false;       // Reset the bool to false to end the power up
                 break;
             case "Player2":
-                Player2PickUp.hasDestroyTrashPowerUp = true;        // Set the bool to true in PickUp script so that trash can be destroyed
+                hasDestroyTrashPowerUp[2] = true;        // Set the bool to true in PickUp script so that trash can be destroyed
                 yield return new WaitForSeconds(15);                // Wait for 15 seconds
-                Player2PickUp.hasDestroyTrashPowerUp = false;       // Reset the bool to false to end the power up
+                hasDestroyTrashPowerUp[2] = false;       // Reset the bool to false to end the power up
                 break;
             case "Player3":
-                Player3PickUp.hasDestroyTrashPowerUp = true;        // Set the bool to true in PickUp script so that trash can be destroyed
+                hasDestroyTrashPowerUp[3] = true;        // Set the bool to true in PickUp script so that trash can be destroyed
                 yield return new WaitForSeconds(15);                // Wait for 15 seconds
-                Player3PickUp.hasDestroyTrashPowerUp = false;       // Reset the bool to false to end the power up
+                hasDestroyTrashPowerUp[3] = false;       // Reset the bool to false to end the power up
                 break;
             case "Player4":
-                Player4PickUp.hasDestroyTrashPowerUp = true;        // Set the bool to true in PickUp script so that trash can be destroyed
+                hasDestroyTrashPowerUp[4] = true;        // Set the bool to true in PickUp script so that trash can be destroyed
                 yield return new WaitForSeconds(15);                // Wait for 15 seconds
-                Player4PickUp.hasDestroyTrashPowerUp = false;       // Reset the bool to false to end the power up
+                hasDestroyTrashPowerUp[4] = false;       // Reset the bool to false to end the power up
                 break;
             default:
                 break;
         }
     }
 
-     // Coroutine to execute the sprint power up
+     // Coroutine to execute the throw power up
     IEnumerator ThrowPowerUp()
     {
         SFXPowerUp.Play();
@@ -396,7 +392,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-     IEnumerator FreezePowerUp()
+    IEnumerator FreezePowerUp()
     {
 
         SFXPowerUp.Play();

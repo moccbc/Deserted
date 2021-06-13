@@ -30,7 +30,7 @@ public class Player1PickUp : MonoBehaviour
         // Pick up trash if hands are empty
         if (canPickUp1 == true)
         {
-            if (PlayerController.player1PickUpPressed)
+            if (PlayerController.pickUpPressed[1])
             {
                 // If the object to be picked up is trash, and the destroy trash power up is not activated, then pick it up
                 if (objToPickUp != null && objToPickUp.layer == 8 && !hasDestroyTrashPowerUp)
@@ -60,7 +60,7 @@ public class Player1PickUp : MonoBehaviour
         }
 
         // Drop trash if holding trash
-        if (PlayerController.player1DropPressed && hasItem1 == true) // Holding an item and the drop key is pressed
+        if (PlayerController.dropPressed[1] && hasItem1 == true) // Holding an item and the drop key is pressed
         {
             objToPickUp.GetComponent<Rigidbody>().isKinematic = false; // make the rigidbody work again
             objToPickUp.GetComponent<Rigidbody>().useGravity = true;

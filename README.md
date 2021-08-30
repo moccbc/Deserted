@@ -25,3 +25,7 @@ Our game currently has the following implemented.
     - Infinite Throwing: Removes the limit for the distance that the trash can be thrown
     - Speed Up: Speeds up the movement for characters
     - Freeze: Freezes the player that picked up the powerup and also the trash spawning
+
+## Known Bugs
+
+- Score bar does not reset after the game ends

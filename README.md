@@ -1,7 +1,7 @@
 # Deserted
 
 ## Gameplay
-Deserted is a local single keyboard 4 player co-op game where the objective is to pick up as much trash as possible that the humans are littering. Can you help our four heros, the Frog, the Salamander, the Merlin, and the Fox? You can view the gameplay of our game [here]{https://www.youtube.com/watch?v=IN5E1NFx3Tk}.
+Deserted is a local single keyboard 4 player co-op game where the objective is to pick up as much trash as possible that the humans are littering. Can you help our four heros, the Frog, the Salamander, the Merlin, and the Fox? You can view the gameplay of our game [here](https://www.youtube.com/watch?v=IN5E1NFx3Tk).
 
 ## Running Our Game
 If you want to run our game from this repo, you will need the following:
